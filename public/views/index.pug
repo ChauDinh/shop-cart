@@ -1,0 +1,13 @@
+extends ./layout/structure.pug
+
+block content
+  nav
+    div.container
+      img.logo(src='/src/logo/logo.png', alt='logo')
+      div.search-field
+        input
+        button
+          img(src='/src/search-logo.png', alt='search-icon', width='20px')
+      img.avatar(src='/src/user.svg', alt='avatar')
+      img.shop-cart(src='/src/shopping-cart.png', alt='shop-cart')
+

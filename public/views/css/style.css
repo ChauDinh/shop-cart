@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+nav {
+  background-color: #3561d9;
+  width: 100vw;
+  height: 80px;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 80px;
+}
+
+nav > div .logo {
+  width: 120px;
+  height: 42.4px;
+}
+
+nav > div .search-field {
+  margin-left: 40px;
+  height: 42.4px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+nav > div .search-field input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-left: 0.4rem;
+  margin-right: 0.2rem;
+  flex-grow: 1;
+}
+
+nav > div .search-field input:focus {
+  outline: none;
+}
+
+nav > div .search-field button {
+  background-color: #3561d9;
+  width: 40px;
+  padding: 0.5rem auto;
+  border-radius: 5px;
+  height: calc(100% - 0.1rem);
+  width: 50px;
+  border: none;
+}
+
+nav > div .search-field button:focus {
+  outline: none;
+}
+
+nav > div .avatar {
+  margin-left: 40px;
+  height: 42.4px;
+}
+
+nav > div .shop-cart {
+  margin-left: 40px;
+  height: 30px;
+}
+
+footer {
+  position: absolute;
+  margin-top: calc(100vh - 50px);
+  width: 100%;
+  background-color: #3561d9;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  padding: 0 2.5rem;
+  color: #c5c5c5;
+}
+
+footer .something {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .something > p {
+  margin-top: 1rem;
+}
