@@ -1,13 +1,21 @@
 extends ./layout/structure.pug
 
 block content
-  nav
-    div.container
-      img.logo(src='/src/logo/logo.png', alt='logo')
-      div.search-field
-        input
-        button
-          img(src='/src/search-logo.png', alt='search-icon', width='20px')
-      img.avatar(src='/src/user.svg', alt='avatar')
-      img.shop-cart(src='/src/shopping-cart.png', alt='shop-cart')
 
+  div.container
+    .banners
+      .banner-1
+      .other-banners
+        .banner-2
+        .banner-3
+
+  .container
+    .hot-products
+      p.title sản phẩm nổi bật
+      hr.ml-2.mr-2
+      ul 
+      each product in products
+        li
+          span= product.name
+          span &nbsp;
+          a(href="/products/" + product._id) View

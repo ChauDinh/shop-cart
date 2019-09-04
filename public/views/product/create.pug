@@ -1,0 +1,23 @@
+extends ../layout/structure.pug
+
+block content 
+  .container.add-product
+    p.title Thêm sản phẩm vào database
+    span.notice (*) Nếu bạn không phải admin, vui lòng rời khỏi trang này!
+    br
+    span.notice (*) Vui lòng điền đầy đủ thông tin sản phẩm. Các ô dưới đây đều bắt buộc!
+    if errors
+      each error in errors
+        .alert.alert-danger= error
+    hr
+    form(action="/products/add", method="POST")
+      .product-name
+        label(for="name") Name
+        input(type="text", name="name", placeholder="tên đầy đủ của sản phẩm", value=values ? values.name : "")
+      .product-author
+        label(for="author") Author
+        input(type="text", name="author", placeholder="tên nguồn gốc, xuất xứ, tác giả...", value=values ? values.author : "")
+      .product-categories
+        label(for="categories") Categories
+        input(type="text", name="categories", placeholder="mỗi category phân cách nhau bằng dấu phẩy", value=values ? values.categories : "")
+      button.create-button Create

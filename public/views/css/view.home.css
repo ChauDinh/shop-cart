@@ -1,0 +1,57 @@
+/* Grid Banners Template */
+
+.banners {
+  margin-top: 2rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 65% 35%;
+  grid-column-gap: 0.5rem;
+}
+
+.banner-1 {
+  width: 100%;
+  height: 210px;
+  border-radius: 5px;
+  background-image: url("../../src/banner-1.jpg");
+  background-size: cover;
+}
+
+.other-banners {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-row-gap: 0.5rem;
+  overflow-x: hidden;
+}
+
+.banner-2 {
+  width: calc(100% - 0.5rem);
+  height: 100%;
+  border-radius: 5px;
+  background-image: url("../../src/banner-2.jpg");
+  background-size: cover;
+}
+
+.banner-3 {
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 0.5rem);
+  border-radius: 5px;
+  background-image: url("../../src/banner-3.jpg");
+  background-size: cover;
+}
+
+/* Products */
+
+.hot-products {
+  margin-top: 2rem;
+  width: 100%;
+  height: 420px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 0;
+}
+
+.hot-products .title {
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
