@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
 const productRoute = require("./routes/product.route");
+const userRoute = require("./routes/user.route");
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -22,11 +23,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 const Product = require("./models/product.model");
+const User = require("./models/user.model");
 
 app.get("/", async (req, res) => {
   const products = await Product.find();
+  const username = req.cookies.username;
   res.render("index", {
-    products: products
+    products: products,
+    username: username
   });
 });
 
@@ -43,5 +47,6 @@ app.get("/search", async (req, res) => {
 });
 
 app.use("/products", productRoute);
+app.use("/users", userRoute);
 
 app.listen(PORT, () => console.log(`The server is listening on ${PORT}`));

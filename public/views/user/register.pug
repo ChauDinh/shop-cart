@@ -1,0 +1,17 @@
+extends ../layout/structure.pug
+
+block content
+  .container.register
+    p.title Đăng Ký Thành Viên
+    hr
+    form(action="/users/register", method="POST")
+      .user-name
+        label(for="username") Tên đăng nhập
+        input(type="text", name="username")
+      .user-email
+        label(for="email") Email
+        input(type="email", name="email")
+      .user-password
+        label(for="password") Password
+        input(type="password", name="password")
+      button.register-button Register

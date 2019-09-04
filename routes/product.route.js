@@ -3,10 +3,11 @@ const router = express.Router();
 
 const controller = require("../controllers/product.controller");
 const validate = require("../middlewares/product.validate");
+const auth = require("../middlewares/auth.validate");
 
-router.get("/", controller.index);
+router.get("/", auth.member, controller.index);
 
-router.get("/add", controller.create);
+router.get("/add", auth.member, controller.create);
 
 router.get("/:id", controller.view);
 

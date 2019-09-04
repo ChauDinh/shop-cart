@@ -1,0 +1,17 @@
+extends ../layout/structure.pug
+
+block content
+  .container.login
+    p.title Đăng Nhập
+    if (errors)
+      each error in errors 
+        .alert.alert-danger= error
+    hr
+    form(action="/users/login", method="POST")
+      .user-email
+        label(for="email") Email
+        input(type="email", name="email", value=values ? values.email : "")
+      .user-password
+        label(for="password") Password
+        input(type="password", name="password", value=values ? values.password : "")
+      button.login-button Login
