@@ -27,10 +27,12 @@ const User = require("./models/user.model");
 
 app.get("/", async (req, res) => {
   const products = await Product.find();
-  const username = req.cookies.username;
+  const username = req.signedCookies.username;
+  const userId = req.signedCookies.userId;
   res.render("index", {
     products: products,
-    username: username
+    username: username,
+    userId: userId
   });
 });
 

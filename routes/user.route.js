@@ -9,7 +9,7 @@ router.get("/login", controller.login);
 
 router.get("/register", controller.register);
 
-router.get("/view", auth.member);
+router.get("/:id", auth.member, controller.view);
 
 router.post("/login", validate.auth, controller.auth);
 

@@ -1,7 +1,9 @@
+const bcrypt = require("bcryptjs");
 const User = require("../models/user.model");
 
+let salt = bcrypt.genSaltSync(10);
+
 module.exports.register = (req, res) => {
-  console.log(req.cookies);
   res.render("user/register");
 };
 
@@ -21,7 +23,7 @@ module.exports.add = async (req, res) => {
   let user = new User({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: bcrypt.hashSync(req.body.password, salt)
   });
   await user.save();
   res.redirect("/users/login");
@@ -39,7 +41,7 @@ module.exports.auth = async (req, res) => {
     return;
   }
 
-  if (user.password !== password) {
+  if (!bcrypt.compareSync(password, user.password)) {
     res.render("user/login", {
       errors: ["Oops! Something went wrong!"],
       values: req.body
@@ -47,8 +49,12 @@ module.exports.auth = async (req, res) => {
     return;
   }
 
-  res.cookie("userId", user._id);
-  res.cookie("username", user.username);
+  res.cookie("userId", user._id, {
+    signed: true
+  });
+  res.cookie("username", user.username, {
+    signed: true
+  });
 
   res.redirect("/");
 };
