@@ -15,7 +15,8 @@ module.exports.view = async (req, res) => {
   let id = req.params.id;
   let user = await User.findOne({ _id: id });
   res.render("user/view", {
-    user: user
+    user: user,
+    path: user.avatar
   });
 };
 
@@ -23,7 +24,8 @@ module.exports.add = async (req, res) => {
   let user = new User({
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, salt)
+    password: bcrypt.hashSync(req.body.password, salt),
+    avatar: req.file.path
   });
   await user.save();
   res.redirect("/users/login");
@@ -53,6 +55,9 @@ module.exports.auth = async (req, res) => {
     signed: true
   });
   res.cookie("username", user.username, {
+    signed: true
+  });
+  res.cookie("avatar", user.avatar, {
     signed: true
   });
 

@@ -12,7 +12,8 @@
 
 .user-name,
 .user-email,
-.user-password {
+.user-password,
+.user-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +22,8 @@
 
 .user-name label,
 .user-email label,
-.user-password label {
+.user-password label,
+.user-avatar label {
   font-weight: lighter;
   text-align: right;
   margin-right: 1rem;
@@ -31,7 +33,8 @@
 
 .user-name input,
 .user-email input,
-.user-password input {
+.user-password input,
+.user-avatar input {
   flex-grow: 1;
   border-radius: 5px;
   border: none;
@@ -43,6 +46,14 @@
 .user-name input,
 .user-email input,
 .user-password input:focus {
+  border: none;
+  outline: none;
+}
+
+.user-avatar input:hover {
+  cursor: pointer;
+}
+.user-avatar input:focus {
   border: none;
   outline: none;
 }

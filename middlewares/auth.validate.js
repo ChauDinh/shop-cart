@@ -14,3 +14,13 @@ module.exports.member = async (req, res, next) => {
 
   next();
 };
+
+module.exports.guess = async (req, res, next) => {
+  const user = await User.findOne({ _id: req.signedCookies.userId });
+  if (!user) {
+    next();
+  }
+  res.locals.user = user;
+  res.locals.path = user.avatar;
+  next();
+};

@@ -20,4 +20,7 @@ block content
       .product-categories
         label(for="categories") Categories
         input(type="text", name="categories", placeholder="mỗi category phân cách nhau bằng dấu phẩy", value=values ? values.categories : "")
+      .product-image
+        label(for="image") Ảnh sản phẩm
+        input#image.form-control-file(type="file", name="image")
       button.create-button Create

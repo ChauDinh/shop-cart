@@ -3,15 +3,21 @@ extends ../layout/structure.pug
 block content
   .container.register
     p.title Đăng Ký Thành Viên
+    if (errors)
+      each error in errors 
+        .alert.alert-danger= error
     hr
-    form(action="/users/register", method="POST")
+    form(action="/users/register", method="POST", enctype="multipart/form-data")
       .user-name
         label(for="username") Tên đăng nhập
-        input(type="text", name="username")
+        input(type="text", name="username", value=values ? values.username : "")
       .user-email
         label(for="email") Email
-        input(type="email", name="email")
+        input(type="email", name="email", value=values ? values.email : "")
       .user-password
         label(for="password") Password
-        input(type="password", name="password")
+        input(type="password", name="password", value=values ? values.password : "")
+      .user-avatar
+        label(for="avatar") Avatar
+        input#avatar.form-control-file(type="file", name="avatar", value=values ? values.avatar : "") 
       button.register-button Register

@@ -18,8 +18,14 @@ html(lang='en')
           input(type="text", name="q", value=value)
           button
             img(src='/src/search-logo.png', alt='search-icon', width='20px')
-        a(href="/users/" + userId)
-          img.avatar(src='/src/user.svg', alt='avatar')
+        if user
+          a(href="/users/" + user._id)
+            img.avatar(src="http://localhost:5001/"+path, alt='avatar')
+        if !user
+          a(href="/users/register") 
+            p Đăng Ký
+          a(href="/users/login")
+            p Đăng Nhập
         img.shop-cart(src='/src/shopping-cart.png', alt='shop-cart')
     
     block content

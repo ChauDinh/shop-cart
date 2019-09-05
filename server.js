@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
@@ -27,12 +26,13 @@ const User = require("./models/user.model");
 
 app.get("/", async (req, res) => {
   const products = await Product.find();
-  const username = req.signedCookies.username;
   const userId = req.signedCookies.userId;
+  const user = await User.findOne({ _id: userId });
   res.render("index", {
     products: products,
-    username: username,
-    userId: userId
+    userId: userId,
+    user: user,
+    path: req.signedCookies.avatar
   });
 });
 

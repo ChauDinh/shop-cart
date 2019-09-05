@@ -18,7 +18,8 @@
 
 .product-name,
 .product-author,
-.product-categories {
+.product-categories,
+.product-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +28,8 @@
 
 .product-name label,
 .product-author label,
-.product-categories label {
+.product-categories label,
+.product-image label {
   font-weight: lighter;
   text-align: right;
   margin-right: 1rem;
@@ -37,7 +39,8 @@
 
 .product-name input,
 .product-author input,
-.product-categories input {
+.product-categories input,
+.product-image input {
   flex-grow: 1;
   border-radius: 5px;
   border: none;
@@ -49,6 +52,14 @@
 .product-name input,
 .product-author input,
 .product-categories input:focus {
+  border: none;
+  outline: none;
+}
+
+.product-image input:hover {
+  cursor: pointer;
+}
+.product-image input:focus {
   border: none;
   outline: none;
 }

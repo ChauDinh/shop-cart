@@ -5,11 +5,11 @@ const controller = require("../controllers/product.controller");
 const validate = require("../middlewares/product.validate");
 const auth = require("../middlewares/auth.validate");
 
-router.get("/", auth.member, controller.index);
+router.get("/", auth.guess, auth.member, controller.index);
 
-router.get("/add", auth.member, controller.create);
+router.get("/add", auth.guess, auth.member, controller.create);
 
-router.get("/:id", controller.view);
+router.get("/:id", auth.guess, controller.view);
 
 router.post("/add", validate.add, controller.add);
 
