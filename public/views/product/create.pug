@@ -10,7 +10,7 @@ block content
       each error in errors
         .alert.alert-danger= error
     hr
-    form(action="/products/add", method="POST")
+    form(action="/products/add", method="POST", enctype="multipart/form-data")
       .product-name
         label(for="name") Name
         input(type="text", name="name", placeholder="tên đầy đủ của sản phẩm", value=values ? values.name : "")

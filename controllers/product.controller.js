@@ -16,7 +16,11 @@ module.exports.view = async (req, res) => {
   let id = req.params.id;
   let product = await Product.findOne({ _id: id });
   res.render("product/view", {
-    product: product
+    product: product,
+    pathImage: product.image
+      .split("/")
+      .slice(1)
+      .join("/")
   });
 };
 
@@ -25,6 +29,7 @@ module.exports.add = async (req, res) => {
     name: req.body.name,
     author: req.body.author.split(","),
     categories: req.body.categories.split(","),
+    image: req.file.path,
     created_at: new Date()
   });
   await product.save();

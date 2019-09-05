@@ -4,6 +4,7 @@ const ProductSchema = mongoose.Schema({
   name: String,
   author: [String],
   categories: [String],
+  image: String,
   created_at: Date
 });
 
