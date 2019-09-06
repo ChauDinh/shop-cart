@@ -39,12 +39,16 @@ app.get("/", async (req, res) => {
 app.get("/search", async (req, res) => {
   let q = req.query.q;
   const products = await Product.find();
+  const userId = req.signedCookies.userId;
+  const user = await User.findOne({ _id: userId });
   let matchedProducts = products.filter(
     product => product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
   );
   res.render("index", {
     products: matchedProducts,
-    value: q
+    value: q,
+    user: user,
+    path: user.avatar
   });
 });
 

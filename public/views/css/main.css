@@ -80,6 +80,8 @@ nav > div .avatar {
   border-radius: 50%;
   margin-left: 40px;
   height: 42.4px;
+  width: 42.4px;
+  background-size: contain;
 }
 
 nav > div .shop-cart {

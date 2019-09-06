@@ -26,6 +26,9 @@ module.exports.add = async (req, res) => {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, salt),
     avatar: req.file.path
+      .split("/")
+      .slice(1)
+      .join("/")
   });
   await user.save();
   res.redirect("/users/login");
