@@ -44,7 +44,7 @@
 .hot-products {
   margin-top: 2rem;
   width: 100%;
-  height: 420px;
+  height: inherit;
   background-color: #fff;
   border-radius: 5px;
   padding: 1rem 0;
@@ -52,6 +52,49 @@
 
 .hot-products .title {
   text-transform: uppercase;
-  font-size: 1rem;
-  margin-left: 1rem;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  margin-left: 1.5rem !important;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+  grid-gap: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.item {
+  height: inherit;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.item img {
+  height: 455px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.item .item-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  padding: 0 1rem;
+}
+
+.item .button-view {
+  color: #3561d9;
+  margin-left: 0.5rem;
+  font-weight: bolder;
+  text-align: right;
+  height: calc(100% - 455px);
+}
+
+.item .item-title {
+  flex-grow: 1;
+  font-weight: bolder;
+  font-style: italic;
 }

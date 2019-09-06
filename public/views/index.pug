@@ -13,9 +13,15 @@ block content
     .hot-products
       p.title sản phẩm nổi bật
       hr.ml-2.mr-2
-      ul 
-      each product in products
-        li
-          span= product.name
-          span &nbsp;
-          a(href="/products/" + product._id) View
+      ul.list 
+        each product in products
+          .item
+            a(href="/products/"+product._id)
+              img(src="http://localhost:5001/"+product.image.split("/").slice(1).join("/"), alt="")
+            .item-info
+              .item-title
+                p= product.name
+              .button-view
+                  a(href="/products/"+product._id) 
+                    p Xem sản phẩm
+          

@@ -25,7 +25,7 @@ const Product = require("./models/product.model");
 const User = require("./models/user.model");
 
 app.get("/", async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().sort({ created_at: -1 });
   const userId = req.signedCookies.userId;
   const user = await User.findOne({ _id: userId });
   res.render("index", {

@@ -19,6 +19,11 @@ a {
   text-decoration: none !important;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
 /* Navigation Bar */
 
 body {
@@ -137,7 +142,7 @@ nav > div .shop-cart {
 
 footer {
   position: absolute;
-  margin-top: calc(100vh - 50px);
+  margin-top: calc(100% - 50px);
   width: 100%;
   background-color: #3561d9;
   display: flex !important;

@@ -2,7 +2,7 @@ const Product = require("../models/product.model");
 const User = require("../models/user.model");
 
 module.exports.index = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().sort({ created_at: -1 });
   res.render("index", {
     products: products
   });
