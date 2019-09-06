@@ -60,7 +60,7 @@
 .list {
   display: grid;
   grid-template-columns: repeat(3, 4fr);
-  grid-gap: 1.5rem;
+  grid-gap: 2rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -72,7 +72,7 @@
 }
 
 .item img {
-  height: 455px;
+  height: 442.42px;
   width: 100%;
   border-radius: 5px 5px 0 0;
 }
@@ -83,18 +83,24 @@
   justify-content: center;
   height: inherit;
   padding: 0 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .item .button-view {
-  color: #3561d9;
+  background-color: #3561d9;
   margin-left: 0.5rem;
-  font-weight: bolder;
   text-align: right;
   height: calc(100% - 455px);
+  margin: 0.3rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.item .button-view a {
+  color: #f4f4f4;
 }
 
 .item .item-title {
   flex-grow: 1;
-  font-weight: bolder;
-  font-style: italic;
 }

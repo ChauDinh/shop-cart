@@ -1,5 +1,13 @@
 extends ../layout/structure.pug
 
 block content
-  img(src="http://localhost:5001/"+pathImage, alt="")
-  p= product.name
+  .container.mt-4
+    a.back-home(href="/")
+      p        
+        i.fas.fa-arrow-left 
+        | &nbsp; Trở về trang chủ
+    .product-view
+      .product-info-image
+        img(src="http://localhost:5001/"+pathImage, alt="")
+      .product-info
+        p= product.name
