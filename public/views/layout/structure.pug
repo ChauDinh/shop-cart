@@ -19,12 +19,15 @@ html(lang='en')
           button
             img(src='/src/search-logo.png', alt='search-icon', width='20px')
         if user
-          a(href="/users/" + user._id)
-            img.avatar(src="http://localhost:5001/"+path, alt='avatar')
-        if !user
-          a(href="/users/register") 
+          a.user-info(href="/users/" + user._id)
+            if path
+              img.avatar(src="http://localhost:5001/"+path, alt='avatar')  
+            else
+              p.username= user.username.split("")[0]          
+        else
+          a.user-register(href="/users/register") 
             p Đăng Ký
-          a(href="/users/login")
+          a.user-login(href="/users/login")
             p Đăng Nhập
         img.shop-cart(src='/src/shopping-cart.png', alt='shop-cart')
     
