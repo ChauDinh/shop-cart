@@ -10,4 +10,32 @@ block content
       .product-info-image
         img(src="http://localhost:5001/"+pathImage, alt="")
       .product-info
-        p= product.name
+        div
+          .product-info-title
+            p= product.name
+          .product-info-author
+            each author in product.author
+              p.badge.badge-primary.text-wrap= author
+              span &nbsp;
+        div
+          .product-info-star
+            i.fas.fa-star 
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+          .product-info-price
+            p $9.99
+        div
+          p.mt-3.font-weight-bolder Categories: 
+          .product-info-categories
+            each category in product.categories
+              p= category
+        .product-info-buttons
+          button.them-vao-gio
+            p 
+              i.fas.fa-cart-plus
+              span &nbsp;
+              | Thêm vào giỏ 
+          button.mua-ngay
+            p Mua ngay 

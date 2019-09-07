@@ -28,7 +28,65 @@
 }
 
 .product-info {
-  background-color: #fff;
   border-radius: 5px;
   padding: 1rem 1.5rem;
+}
+
+.product-info-title {
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.product-info-author {
+  font-style: italic;
+}
+
+.product-info-star {
+  color: #ed8a19;
+  margin-top: 1rem;
+}
+
+.product-info-price {
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+}
+
+.product-info-categories {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.product-info-categories p {
+  background-color: #f5f5f5;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+}
+
+.product-info-buttons {
+  margin-top: 3rem;
+}
+
+.product-info-buttons .them-vao-gio {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  border: 2px solid #3561d9;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.product-info-buttons .mua-ngay {
+  padding: 0.5rem 1rem;
+  background-color: #3561d9;
+  color: #f4f4f4;
+  border-radius: 5px;
+  border: 2px solid #3561d9;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
