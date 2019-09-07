@@ -35,7 +35,7 @@
   width: calc(100% - 0.5rem);
   height: calc(100% - 0.5rem);
   border-radius: 5px;
-  background-image: url("../../src/banner-3.jpg");
+  background-image: url("../../src/banner-3.png");
   background-size: cover;
 }
 

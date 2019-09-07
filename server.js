@@ -48,7 +48,8 @@ app.get("/search", async (req, res) => {
     products: matchedProducts,
     value: q,
     user: user,
-    path: user.avatar
+    path: user.avatar,
+    query: q
   });
 });
 

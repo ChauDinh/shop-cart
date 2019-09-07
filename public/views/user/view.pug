@@ -1,4 +1,27 @@
 extends ../layout/structure.pug
 
 block content
-  p= user.username
+  .container.mt-4
+    a.back-home(href="/")
+      p.badge.badge-primary.text-wrap
+        i.fas.fa-arrow-left 
+        | &nbsp; Trở về trang chủ
+    .user-view
+      .user-info
+        div
+          .user-info-username
+            p Tên đăng nhập: #{user.username}
+          .user-info-email
+            p Email:
+              span &nbsp;
+              input(type="email", name="new-email", value=user.email)
+          .user-info-new-password
+            p Mật khẩu mới:
+              span &nbsp;
+              input(type="password", name="new-password")
+          .user-info-button
+            button Cập nhật
+      .user-info-avatar
+        if path
+          img(src="http://localhost:5001/"+path, alt="")
+          

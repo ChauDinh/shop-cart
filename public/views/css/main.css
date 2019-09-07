@@ -1,5 +1,6 @@
 @import "./view.home.css";
 @import "./view.product.css";
+@import "./view.user.css";
 @import "./login.user.css";
 @import "./add.user.css";
 @import "./add.product.css";
@@ -99,7 +100,7 @@ nav > div .user-info {
   width: 42.4px;
   height: 42.4px;
   border-radius: 50%;
-  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 nav > div .avatar {

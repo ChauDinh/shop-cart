@@ -3,7 +3,7 @@ extends ../layout/structure.pug
 block content
   .container.mt-4
     a.back-home(href="/")
-      p        
+      p.badge.badge-primary.text-wrap        
         i.fas.fa-arrow-left 
         | &nbsp; Trở về trang chủ
     .product-view
@@ -30,7 +30,7 @@ block content
           p.mt-3.font-weight-bolder Categories: 
           .product-info-categories
             each category in product.categories
-              p= category
+              p.badge.badge-primary.text-wrap= category
         .product-info-buttons
           button.them-vao-gio
             p 

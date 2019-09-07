@@ -11,7 +11,11 @@ block content
 
   .container
     .hot-products
-      p.title sản phẩm nổi bật
+      if query 
+        p.title
+          | # #{query}
+      else
+        p.title sách mới trong tuần
       hr.ml-2.mr-2
       ul.list 
         each product in products
