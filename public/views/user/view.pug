@@ -7,21 +7,25 @@ block content
         i.fas.fa-arrow-left 
         | &nbsp; Trở về trang chủ
     .user-view
-      .user-info
-        div
-          .user-info-username
-            p Tên đăng nhập: #{user.username}
-          .user-info-email
-            p Email:
-              span &nbsp;
-              input(type="email", name="new-email", value=user.email)
-          .user-info-new-password
-            p Mật khẩu mới:
-              span &nbsp;
-              input(type="password", name="new-password")
-          .user-info-button
-            button Cập nhật
+      form.user-update-info(action="/users/update", method="POST")
+        .user-info-username
+          label(for="updateUsername") Tên đăng nhập 
+          input(type="text", name="updateUsername", value=user.username)
+        .user-info-email
+          label(for="updateEmail") Email:
+          input(type="email", name="updateEmail", value=user.email)
+        .user-info-update-password
+          label(for="updatePassword") Mật khẩu mới: 
+          input(type="password", name="updatePassword")
+        button.user-info-button Cập nhật
       .user-info-avatar
         if path
           img(src="http://localhost:5001/"+path, alt="")
+        else 
+          button.update-avatar
+            p
+              i.fas.fa-user-plus
+              span &nbsp;
+              |  Upload Avatar
+
           

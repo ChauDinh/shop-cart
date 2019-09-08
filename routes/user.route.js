@@ -19,4 +19,6 @@ router.post("/login", validate.auth, controller.auth);
 
 router.post("/register", upload.single("avatar"), register.add, controller.add);
 
+router.post("/update", controller.update);
+
 module.exports = router;

@@ -68,3 +68,23 @@ module.exports.auth = async (req, res) => {
 
   res.redirect("/");
 };
+
+module.exports.update = async (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.signedCookies.userId },
+    {
+      $set: {
+        username: req.body.updateUsername,
+        email: req.body.updateEmail,
+        password: bcrypt.hashSync(req.body.updatePassword, salt)
+      }
+    }
+  ).exec(function(err) {
+    if (err) {
+      console.error(err);
+      res.status(500).send(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+};

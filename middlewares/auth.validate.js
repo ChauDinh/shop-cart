@@ -12,6 +12,9 @@ module.exports.member = async (req, res, next) => {
     return;
   }
 
+  res.locals.user = user;
+  res.locals.path = user.avatar;
+
   next();
 };
 

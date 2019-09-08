@@ -1,4 +1,4 @@
-module.exports.add = (req, res, next) => {
+module.exports.add = async (req, res, next) => {
   let errors = [];
   if (!req.body.name) {
     errors.push("Tên sản phẩm là bắt buộc!");
