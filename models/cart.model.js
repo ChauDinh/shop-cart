@@ -3,7 +3,7 @@ const User = require("./user.model");
 
 const CartSchema = mongoose.Schema({
   owner: String,
-  items: [String],
+  items: [{ productId: String, productName: String }],
   total: Number
 });
 

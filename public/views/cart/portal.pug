@@ -1,0 +1,7 @@
+extends ../layout/structure.pug
+
+block content
+  .container
+    if listName
+      each name in listName
+        p= name

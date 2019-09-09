@@ -1,5 +1,5 @@
 const Product = require("../models/product.model");
-const User = require("../models/user.model");
+const Cart = require("../models/cart.model");
 
 module.exports.index = async (req, res) => {
   const products = await Product.find().sort({ created_at: -1 });
@@ -15,12 +15,17 @@ module.exports.create = (req, res) => {
 module.exports.view = async (req, res) => {
   let id = req.params.id;
   let product = await Product.findOne({ _id: id });
+  let cart = await Cart.findOne({ owner: req.signedCookies.userId });
+  res.cookie("productId", product._id, {
+    signed: true
+  });
   res.render("product/view", {
     product: product,
     pathImage: product.image
       .split("/")
       .slice(1)
-      .join("/")
+      .join("/"),
+    cartNumber: cart ? cart.items.length : ""
   });
 };
 

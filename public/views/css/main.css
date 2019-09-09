@@ -137,7 +137,25 @@ nav > div .user-login {
 
 nav > div .shop-cart {
   margin-left: 40px;
+  position: relative;
+}
+
+nav > div .shop-cart img {
   height: 30px;
+}
+
+nav > div .shop-cart .shop-cart-items {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  top: -5px;
+  right: -10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #3561d9;
 }
 
 /* Footer */

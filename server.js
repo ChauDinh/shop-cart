@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
+const cartRoute = require("./routes/cart.route");
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -23,16 +24,19 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 
 const Product = require("./models/product.model");
 const User = require("./models/user.model");
+const Cart = require("./models/cart.model");
 
 app.get("/", async (req, res) => {
   const products = await Product.find().sort({ created_at: -1 });
   const userId = req.signedCookies.userId;
   const user = await User.findOne({ _id: userId });
+  const cart = await Cart.findOne({ owner: userId });
   res.render("index", {
     products: products,
     userId: userId,
     user: user,
-    path: req.signedCookies.avatar
+    path: req.signedCookies.avatar,
+    cartNumber: cart ? cart.items.length : ""
   });
 });
 
@@ -55,5 +59,6 @@ app.get("/search", async (req, res) => {
 
 app.use("/products", productRoute);
 app.use("/users", userRoute);
+app.use("/cart", cartRoute);
 
 app.listen(PORT, () => console.log(`The server is listening on ${PORT}`));

@@ -32,10 +32,11 @@ block content
             each category in product.categories
               p.badge.badge-primary.text-wrap= category
         .product-info-buttons
-          button.them-vao-gio
-            p 
-              i.fas.fa-cart-plus
-              span &nbsp;
-              | Thêm vào giỏ 
+          form(action="/cart/add", method="POST")
+            button.them-vao-gio
+              p 
+                i.fas.fa-cart-plus
+                span &nbsp;
+                | Thêm vào giỏ 
           button.mua-ngay
             p Mua ngay 

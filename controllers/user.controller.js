@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user.model");
+const Cart = require("../models/cart.model");
 
 let salt = bcrypt.genSaltSync(10);
 
@@ -14,9 +15,11 @@ module.exports.login = (req, res) => {
 module.exports.view = async (req, res) => {
   let id = req.params.id;
   let user = await User.findOne({ _id: id });
+  let cart = await Cart.findOne({ owner: req.signedCookies.userId });
   res.render("user/view", {
     user: user,
-    path: user.avatar
+    path: user.avatar,
+    cartNumber: cart.items.length
   });
 };
 

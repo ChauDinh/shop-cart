@@ -29,7 +29,14 @@ html(lang='en')
             p Đăng Ký
           a.user-login(href="/users/login")
             p Đăng Nhập
-        img.shop-cart(src='/src/shopping-cart.png', alt='shop-cart')
+        .shop-cart
+          a(href="/cart/portal")
+            img(src='/src/shopping-cart.png', alt='shop-cart')
+          .shop-cart-items.d-flex.justify-content-center.align-items-center
+            if cartNumber
+              p.text-center= cartNumber
+            else 
+              p.text-center 0
     
     block content
 
