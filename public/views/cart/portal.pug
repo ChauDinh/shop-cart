@@ -2,6 +2,18 @@ extends ../layout/structure.pug
 
 block content
   .container
-    if listName
-      each name in listName
-        p= name
+    h1.portal-title Giỏ Hàng Của Tôi
+    .portal
+      if freqCounter
+        each val, index in freqCounter
+          .buy-item
+            .item-name= index
+            .item-number-group
+              button.item-number-decrement - 
+              .item-number= val
+              button.item-number-increment +
+            button.item-delete Delete
+    .payment
+      .payment-amount Tổng tiền $#{cartNumber * 9.99}
+      button.payment-button Thanh toán
+          

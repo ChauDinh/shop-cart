@@ -5,6 +5,7 @@
 @import "./add.user.css";
 @import "./add.product.css";
 @import "./administrator.css";
+@import "./view.portal.css";
 
 * {
   padding: 0;

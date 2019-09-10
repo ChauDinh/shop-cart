@@ -30,7 +30,10 @@ html(lang='en')
           a.user-login(href="/users/login")
             p Đăng Nhập
         .shop-cart
-          a(href="/cart/portal")
+          if cartNumber
+            a(href="/cart/portal")
+              img(src='/src/shopping-cart.png', alt='shop-cart')
+          else
             img(src='/src/shopping-cart.png', alt='shop-cart')
           .shop-cart-items.d-flex.justify-content-center.align-items-center
             if cartNumber

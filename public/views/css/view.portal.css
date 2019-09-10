@@ -1,0 +1,77 @@
+.portal-title {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.portal {
+  margin-top: 2rem;
+}
+
+.buy-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.item-name {
+  flex-grow: 1;
+}
+
+.item-number-group {
+  margin-right: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-number-increment,
+.item-number-decrement {
+  padding: 0.3rem 0.8rem;
+  background-color: #f4f4f4;
+  color: #3561d9;
+  border: none;
+  border-radius: 6px;
+}
+
+.item-number {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.item-delete {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #3561d9;
+  color: #f4f4f4;
+  font-weight: lighter;
+}
+
+.payment {
+  float: right;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.payment-amount {
+  margin-right: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.payment-button {
+  padding: 0.5rem 1rem;
+  background-color: #3561d9;
+  color: #f4f4f4;
+  font-weight: lighter;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}

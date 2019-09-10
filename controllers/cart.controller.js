@@ -5,54 +5,36 @@ module.exports.portal = async (req, res) => {
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
   let list = [...cart.items];
   let listName = list.map(item => item.productName);
+  let freqCounter = {};
+  for (let el of listName) {
+    freqCounter[el] = (freqCounter[el] || 0) + 1;
+  }
   res.render("cart/portal", {
-    cartNumber: cart.items.length,
-    listName
+    cartNumber: Object.values(freqCounter).reduce((a, b) => a + b),
+    freqCounter
   });
 };
 
 module.exports.add = async (req, res) => {
   let productId = req.signedCookies.productId;
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
-  let items = cart
-    ? cart.items.map(item => ({
-        productId: item.productId,
-        productName: item.productName,
-        number: item.number
-      }))
-    : "";
-  let itemsId = items ? items.map(item => item.productId) : "";
-  let itemsNumber = items ? items.map(item => item.number) : "";
-  let isExist = items ? itemsId.includes(productId) : false;
-  let indexOfItemsId = isExist ? itemsId.indexOf(productId) : 0;
   let itemsLength = cart ? cart.items.length : 0;
   let product = await Product.findOne({ _id: productId });
 
   if (cart) {
     await Cart.findOneAndUpdate(
       { _id: cart._id },
-      isExist
-        ? {
-            $set: {
-              items: {
-                productId: productId,
-                productName: product.name,
-                number: itemsNumber[indexOfItemsId] + 1
-              }
-            }
+      {
+        $push: {
+          items: {
+            productId: productId,
+            productName: product.name
           }
-        : {
-            $push: {
-              items: {
-                productId: productId,
-                productName: product.name,
-                number: 1
-              }
-            },
-            $set: {
-              total: 9.99 * parseInt(itemsLength + 1)
-            }
-          },
+        },
+        $set: {
+          total: 9.99 * parseInt(itemsLength + 1)
+        }
+      },
       { new: true }
     );
   } else {
@@ -61,8 +43,7 @@ module.exports.add = async (req, res) => {
       owner: req.signedCookies.userId,
       items: {
         productId: productId,
-        productName: product.name,
-        number: 1
+        productName: product.name
       },
       total: 9.99
     });
@@ -70,4 +51,8 @@ module.exports.add = async (req, res) => {
     await cart.save();
   }
   res.redirect("/cart/portal");
+};
+
+module.exports.delete = async (req, res) => {
+  const cart = await Cart.findOne({ owner: req.signedCookies.userId });
 };
