@@ -3,16 +3,28 @@ extends ../layout/structure.pug
 block content
   .container
     h1.portal-title Giỏ Hàng Của Tôi
+    button.btn.btn-primary
+      a(href="/").text-light
+        i.fas.fa-arrow-left 
+        span &nbsp;
+        | Tiếp tục mua hàng
     .portal
-      if freqCounter
-        each val, index in freqCounter
+      if freqCounterName
+        each val, index in freqCounterName
           .buy-item
             .item-name= index
             .item-number-group
-              button.item-number-decrement - 
+              form(action="/cart/decrement/" + index.split(" ").join("-"), method="POST")
+                input(type="hidden", value=val-1, name="numberDecrement")
+                button.item-number-decrement(type="submit") - 
               .item-number= val
-              button.item-number-increment +
-            button.item-delete Delete
+              form(action="/cart/increment/" + index.split(" ").join("-"), method="POST")
+                input(type="hidden", value=val+1, name="numberIncrement")
+                button.item-number-increment(type="submit") +
+            form(action="/cart/delete/"+index.split(" ").join("-"), method="POST")
+              input(type="hidden", value=0)
+              button.item-delete(type="submit") Delete
+
     .payment
       .payment-amount Tổng tiền $#{cartNumber * 9.99}
       button.payment-button Thanh toán

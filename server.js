@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
 const cartRoute = require("./routes/cart.route");
-const sessionMiddleware = require("./middlewares/session.middleware");
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -22,7 +21,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
-app.use(sessionMiddleware);
 
 const Product = require("./models/product.model");
 const User = require("./models/user.model");

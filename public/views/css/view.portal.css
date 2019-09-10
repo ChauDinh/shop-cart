@@ -35,6 +35,7 @@
   color: #3561d9;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .item-number {
