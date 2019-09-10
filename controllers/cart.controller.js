@@ -54,6 +54,19 @@ module.exports.add = async (req, res) => {
 };
 
 module.exports.decrement = async (req, res) => {
+  let cart = await Cart.findOne({ owner: req.signedCookies.userId });
+  let items = [...cart.items];
+  let itemsName = items.map(item => item.productName);
+  let index = itemsName.indexOf(Object.keys(req.body)[0]);
+  items.splice(index, 1);
+  await Cart.findOneAndUpdate(
+    { _id: cart._id },
+    {
+      $set: {
+        items: items
+      }
+    }
+  );
   res.send(req.body);
 };
 

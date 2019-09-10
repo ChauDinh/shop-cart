@@ -15,11 +15,11 @@ block content
             .item-name= index
             .item-number-group
               form(action="/cart/decrement/" + index.split(" ").join("-"), method="POST")
-                input(type="hidden", value=val-1, name="numberDecrement")
+                input(type="hidden", value=val-1, name=index)
                 button.item-number-decrement(type="submit") - 
               .item-number= val
               form(action="/cart/increment/" + index.split(" ").join("-"), method="POST")
-                input(type="hidden", value=val+1, name="numberIncrement")
+                input(type="hidden", value=val+1, name=index)
                 button.item-number-increment(type="submit") +
             form(action="/cart/delete/"+index.split(" ").join("-"), method="POST")
               input(type="hidden", value=0)
