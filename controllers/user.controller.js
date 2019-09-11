@@ -69,7 +69,12 @@ module.exports.auth = async (req, res) => {
     signed: true
   });
 
-  res.redirect("/");
+  if (req.signedCookies.productId) {
+    let id = req.signedCookies.productId;
+    res.redirect("/products/" + id);
+  } else {
+    res.redirect("/");
+  }
 };
 
 module.exports.update = async (req, res) => {

@@ -3,6 +3,9 @@ const Product = require("../models/product.model");
 
 module.exports.portal = async (req, res) => {
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
+  if (!cart || cart.items.length === 0) {
+    res.redirect("/cart/empty");
+  }
   let list = [...cart.items];
   let listName = list.map(item => item.productName);
   let freqCounterName = {};
@@ -67,13 +70,43 @@ module.exports.decrement = async (req, res) => {
       }
     }
   );
-  res.send(req.body);
+  res.redirect("/cart/portal");
 };
 
 module.exports.increment = async (req, res) => {
-  res.send(req.body);
+  // let cart = await Cart.findOne({ owner: req.signedCookies.userId });
+  let product = await Product.findOne({ name: Object.keys(req.body)[0] });
+  await Cart.findOneAndUpdate(
+    { owner: req.signedCookies.userId },
+    {
+      $push: {
+        items: {
+          productId: product._id,
+          productName: product.name
+        }
+      }
+    }
+  );
+  res.redirect("/cart/portal");
 };
 
 module.exports.delete = async (req, res) => {
-  res.send(req.body);
+  let cart = await Cart.findOne({ owner: req.signedCookies.userId });
+  let items = [...cart.items];
+  let removeItems = items.filter(
+    item => item.productName !== Object.keys(req.body)[0]
+  );
+  await Cart.findOneAndUpdate(
+    { owner: req.signedCookies.userId },
+    {
+      $set: {
+        items: removeItems
+      }
+    }
+  );
+  res.redirect("/cart/portal");
+};
+
+module.exports.empty = (req, res) => {
+  res.render("cart/empty");
 };

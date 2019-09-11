@@ -5,6 +5,7 @@ const controller = require("../controllers/cart.controller");
 const validate = require("../middlewares/auth.validate");
 
 router.get("/portal", validate.member, controller.portal);
+router.get("/empty", validate.member, controller.empty);
 
 router.post("/add", validate.member, controller.add);
 router.post("/delete/:name", controller.delete);

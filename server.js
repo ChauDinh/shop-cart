@@ -29,6 +29,7 @@ const Cart = require("./models/cart.model");
 app.get("/", async (req, res) => {
   const products = await Product.find().sort({ created_at: -1 });
   const userId = req.signedCookies.userId;
+  const product = await Product.findOne({ _id: req.signedCookies.productId });
   const user = await User.findOne({ _id: userId });
   const cart = await Cart.findOne({ owner: userId });
   res.render("index", {

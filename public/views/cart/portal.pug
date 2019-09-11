@@ -3,11 +3,10 @@ extends ../layout/structure.pug
 block content
   .container
     h1.portal-title Giỏ Hàng Của Tôi
-    button.btn.btn-primary
-      a(href="/").text-light
-        i.fas.fa-arrow-left 
-        span &nbsp;
-        | Tiếp tục mua hàng
+    a(href="/").btn.btn-primary.text-light
+      i.fas.fa-arrow-left 
+      span &nbsp;
+      | Tiếp tục mua hàng
     .portal
       if freqCounterName
         each val, index in freqCounterName
@@ -22,7 +21,7 @@ block content
                 input(type="hidden", value=val+1, name=index)
                 button.item-number-increment(type="submit") +
             form(action="/cart/delete/"+index.split(" ").join("-"), method="POST")
-              input(type="hidden", value=0)
+              input(type="hidden", value=0, name=index)
               button.item-delete(type="submit") Delete
 
     .payment
