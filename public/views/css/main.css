@@ -34,6 +34,8 @@ body {
   color: #fff;
   background-color: #f4f4f4 !important;
   /* overflow-x: hidden; */
+  position: relative;
+  height: 100%;
 }
 
 nav {
@@ -163,7 +165,7 @@ nav > div .shop-cart .shop-cart-items {
 
 footer {
   position: absolute;
-  margin-top: calc(100% - 50px);
+  bottom: -20rem;
   width: 100%;
   background-color: #3561d9;
   display: flex !important;
@@ -173,7 +175,7 @@ footer {
   font-family: sans-serif;
   font-weight: 300;
   font-size: 2.4rem;
-  padding: 0 2.5rem;
+  padding: 1rem 2.5rem;
   color: #fff;
 }
 
