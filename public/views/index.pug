@@ -10,6 +10,18 @@ block content
         .banner-3
 
   .container
+    .articles
+      p.title tin công nghệ
+      hr
+      .getArticles
+        if getArticles
+          .article-image.mr-3
+            each image in getArticles.images.slice(0, 10)
+              img.mb-2(src=image.image, alt="", width="60px", height="50px")
+          .article
+            each article in getArticles.articles.slice(0, 10)
+              a.mb-2(href=article.url, target="blank")
+                p.article-title= article.title
     .hot-products
       if query 
         p.title

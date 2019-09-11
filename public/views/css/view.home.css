@@ -39,6 +39,53 @@
   background-size: cover;
 }
 
+/* News */
+
+.articles {
+  margin-top: 2rem;
+  width: 100%;
+  height: inherit;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+
+.articles .title {
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.articles a {
+  color: #000;
+}
+
+.getArticles {
+  display: flex;
+}
+
+.article-image {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.article-image > img {
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.article {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.article-title {
+  font-weight: bolder;
+}
+
 /* Products */
 
 .hot-products {

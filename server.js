@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+const puppeteer = require("puppeteer");
 
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
@@ -31,12 +32,41 @@ app.get("/", async (req, res) => {
   const userId = req.signedCookies.userId;
   const user = await User.findOne({ _id: userId });
   const cart = await Cart.findOne({ owner: userId });
+  // Get dữ liệu từ freecodecamp/news
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto("https://www.freecodecamp.org/news/");
+
+  // Script dùng để craw dữ liệu vào biến articles và images
+  const getArticles = await page.evaluate(() => {
+    let titleLinks = document.querySelectorAll(".post-card-title");
+    let imageLinks = document.querySelectorAll(".post-card-image");
+    titleLinks = [...titleLinks];
+    imageLinks = [...imageLinks];
+    let articles = titleLinks.map(link => ({
+      title: link.innerText,
+      url: link.getElementsByTagName("a")[0].href
+    }));
+    let images = imageLinks.map(image => ({
+      image:
+        image.getAttribute("src").indexOf("https") !== -1
+          ? `${image.getAttribute("src")}`
+          : `https://freecodecamp.org${image.getAttribute("src")}`
+    }));
+    return {
+      articles,
+      images
+    };
+  });
+  await browser.close();
+
   res.render("index", {
     products: products,
     userId: userId,
     user: user,
     path: req.signedCookies.avatar,
-    cartNumber: cart ? cart.items.length : ""
+    cartNumber: cart ? cart.items.length : "",
+    getArticles: getArticles
   });
 });
 
