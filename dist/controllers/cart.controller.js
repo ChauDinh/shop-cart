@@ -1,3 +1,5 @@
+"use strict";
+
 const Cart = require("../models/cart.model");
 const Product = require("../models/product.model");
 
@@ -6,7 +8,7 @@ module.exports.portal = async (req, res) => {
   if (!cart || cart.items.length === 0) {
     res.redirect("/cart/empty");
   }
-  let list = [].concat(cart.items);
+  let list = [...cart.items];
   let listName = list.map(item => item.productName);
   let freqCounterName = {};
   for (let el of listName) {
@@ -54,7 +56,7 @@ module.exports.add = async (req, res) => {
 
 module.exports.decrement = async (req, res) => {
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
-  let items = [].concat(cart.items);
+  let items = [...cart.items];
   let itemsName = items.map(item => item.productName);
   let index = itemsName.indexOf(Object.keys(req.body)[0]);
   items.splice(index, 1);
@@ -82,7 +84,7 @@ module.exports.increment = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
-  let items = [].concat(cart.items);
+  let items = [...cart.items];
   let removeItems = items.filter(item => item.productName !== Object.keys(req.body)[0]);
   await Cart.findOneAndUpdate({ owner: req.signedCookies.userId }, {
     $set: {

@@ -80,7 +80,6 @@ app.get("/search", async (req, res) => {
     }
   });
 
-  console.log(matchedProducts);
   res.render("index", {
     products: matchedProducts,
     value: q,

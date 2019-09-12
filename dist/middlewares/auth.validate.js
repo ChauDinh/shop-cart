@@ -1,3 +1,5 @@
+"use strict";
+
 const User = require("../models/user.model");
 
 module.exports.member = async (req, res, next) => {

@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports.auth = (req, res, next) => {
   let errors = [];
   if (!req.body.email) {

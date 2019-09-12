@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports.add = async (req, res, next) => {
   let errors = [];
   if (!req.body.name) {
