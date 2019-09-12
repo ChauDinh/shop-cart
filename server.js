@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const puppeteer = require("puppeteer");
-
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
 const cartRoute = require("./routes/cart.route");
@@ -33,7 +32,7 @@ app.get("/", async (req, res) => {
   const user = await User.findOne({ _id: userId });
   const cart = await Cart.findOne({ owner: userId });
   // Get dữ liệu từ freecodecamp/news
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto("https://www.freecodecamp.org/news/");
 
@@ -72,13 +71,16 @@ app.get("/", async (req, res) => {
 
 app.get("/search", async (req, res) => {
   let q = req.query.q;
-  const products = await Product.find();
   const userId = req.signedCookies.userId;
   const user = await User.findOne({ _id: userId });
-  let matchedProducts = products.filter(
-    product => product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
-  );
   const cart = await Cart.findOne({ owner: userId });
+  const matchedProducts = await Product.find({
+    categories: {
+      $in: [`${q}`]
+    }
+  });
+
+  console.log(matchedProducts);
   res.render("index", {
     products: matchedProducts,
     value: q,

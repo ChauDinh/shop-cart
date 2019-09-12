@@ -19,7 +19,7 @@ module.exports.view = async (req, res) => {
   res.render("user/view", {
     user: user,
     path: user.avatar,
-    cartNumber: cart.items.length
+    cartNumber: cart ? cart.items.length : ""
   });
 };
 

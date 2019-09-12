@@ -10,11 +10,11 @@ block content
         .banner-3
 
   .container
-    .articles
-      p.title tin công nghệ
-      hr
-      .getArticles
-        if getArticles
+    if getArticles
+      .articles
+        p.title tin công nghệ
+        hr
+        .getArticles
           .article-image.mr-3
             each image in getArticles.images.slice(0, 10)
               img.mb-2(src=image.image, alt="", width="60px", height="50px")

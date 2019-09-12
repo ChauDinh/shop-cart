@@ -16,15 +16,19 @@ module.exports.view = async (req, res) => {
   let id = req.params.id;
   let product = await Product.findOne({ _id: id });
   let cart = await Cart.findOne({ owner: req.signedCookies.userId });
-  res.cookie("productId", product._id, {
-    signed: true
-  });
+  if (product) {
+    res.cookie("productId", product._id, {
+      signed: true
+    });
+  }
   res.render("product/view", {
     product: product,
-    pathImage: product.image
-      .split("/")
-      .slice(1)
-      .join("/"),
+    pathImage: product
+      ? product.image
+          .split("/")
+          .slice(1)
+          .join("/")
+      : "",
     cartNumber: cart ? cart.items.length : ""
   });
 };
@@ -32,8 +36,8 @@ module.exports.view = async (req, res) => {
 module.exports.add = async (req, res) => {
   let product = new Product({
     name: req.body.name,
-    author: req.body.author.split(","),
-    categories: req.body.categories.split(","),
+    author: req.body.author.split(", "),
+    categories: req.body.categories.split(", "),
     image: req.file.path,
     created_at: new Date()
   });
