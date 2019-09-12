@@ -14,9 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.set("view engine", "pug");
-app.set("views", "./public/views");
+app.set("views", "public/views");
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("./"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

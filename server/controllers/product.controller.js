@@ -23,12 +23,7 @@ module.exports.view = async (req, res) => {
   }
   res.render("product/view", {
     product: product,
-    pathImage: product
-      ? product.image
-          .split("/")
-          .slice(1)
-          .join("/")
-      : "",
+    pathImage: product ? product.image : "",
     cartNumber: cart ? cart.items.length : ""
   });
 };
