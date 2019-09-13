@@ -8,10 +8,12 @@ const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
 const cartRoute = require("./routes/cart.route");
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true
+});
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8081;
 
 app.set("view engine", "pug");
 app.set("views", "public/views");

@@ -21,7 +21,7 @@ html(lang='en')
         if user
           a.user-info(href="/users/" + user._id)
             if path
-              img.avatar(src="http://localhost:5001/"+path, alt='avatar')  
+              img.avatar(src="http://localhost:8081/"+path, alt='avatar')  
             else
               p.username= user.username.split("")[0]          
         else
