@@ -55,6 +55,7 @@ module.exports.auth = async (req, res) => {
     });
     return;
   }
+  console.log(user.avatar);
 
   res.cookie("userId", user._id, {
     signed: true
