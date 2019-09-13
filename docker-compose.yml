@@ -16,13 +16,16 @@ services:
     environment:
       DB_HOST: db
     volumes:
-      - ./public/src:/app/files
+      - ./public/src/images:/app/public/src/images
+      - ./public/src/uploads:/app/public/src/uploads
     command: ["./wait-for-it.sh", "db:5432", "--", "node", "./dist/server.js"]
     # command: ["node", "./dist/server.js"]
   nginx:
     image: nginx
     volumes:
       - ./mysite.template:/etc/nginx/conf.d/mysite.template
+      - ./public/src/images:/public/src/images
+      - ./public/src/uploads:/public/src/uploads
     ports:
       - "8081:80"
     networks:
