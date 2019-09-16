@@ -33,7 +33,7 @@ block content
         each product in products
           .item
             a(href="/products/"+product._id)
-              img(src="http://localhost:8081/"+product.image, alt="")
+              img(src=product.image, alt="")
             .item-info
               .item-title
                 p= product.name

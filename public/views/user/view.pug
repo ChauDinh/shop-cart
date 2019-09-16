@@ -20,7 +20,7 @@ block content
         button.user-info-button Cập nhật
       .user-info-avatar
         if path
-          img(src="http://db:8081/"+path, alt="")
+          img(src=process.env.SERVER_URL || "http://localhost:8080/" + path, alt="")
         else 
           button.update-avatar
             p

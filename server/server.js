@@ -1,28 +1,29 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 // const puppeteer = require("puppeteer");
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
 const cartRoute = require("./routes/cart.route");
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL || "mongodb://localhost/shop-cart-db", {
   useNewUrlParser: true
 });
 
 const app = express();
-const PORT = process.env.PORT || 8081;
 
 app.set("view engine", "pug");
 app.set("views", "public/views");
 
 app.use(express.static("./"));
+app.use("/public/src/uploads", express.static("./public/src/uploads"));
+app.use("/public/src/images", express.static("./public/src/images"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser(process.env.SESSION_SECRET));
+// app.use(cookieParser(process.env.SESSION_SECRET));
 
 const Product = require("./models/product.model");
 const User = require("./models/user.model");
@@ -96,4 +97,4 @@ app.use("/products", productRoute);
 app.use("/users", userRoute);
 app.use("/cart", cartRoute);
 
-app.listen(PORT, () => console.log(`The server is listening on ${PORT}`));
+app.listen(8080, () => console.log(`The server is listening on 8080`));
