@@ -5,9 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node dist/server.js",
-    "start": "nodemon --exec babel-node server/server.js",
-    "build": "babel server -d dist"
+    "start": "nodemon ./server/server.js"
   },
   "author": "Chau Dinh <chaudinhk40@gmail.com>",
   "license": "MIT",

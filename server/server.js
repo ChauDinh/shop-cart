@@ -1,16 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 // const puppeteer = require("puppeteer");
 const productRoute = require("./routes/product.route");
 const userRoute = require("./routes/user.route");
 const cartRoute = require("./routes/cart.route");
 
-mongoose.connect(process.env.MONGO_URL || "mongodb://localhost/shop-cart-db", {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  process.env.MONGO_URL || "mongodb://localhost:27017/shop-cart-db",
+  {
+    useNewUrlParser: true
+  }
+);
 
 const app = express();
 
@@ -23,7 +26,7 @@ app.use("/public/src/images", express.static("./public/src/images"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(cookieParser("kimboyune"));
 
 const Product = require("./models/product.model");
 const User = require("./models/user.model");

@@ -21,7 +21,7 @@ html(lang='en')
         if user
           a.user-info(href="/users/" + user._id)
             if path
-              img.avatar(src=path, alt='avator')  
+              img.avatar(src=`/${path}`, alt='avator')  
             else
               p.username= user.username.split("")[0]          
         else

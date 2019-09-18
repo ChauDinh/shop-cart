@@ -9,3 +9,5 @@ git clone
 cd shop-cart
 npm install
 ```
+
+After installation, you may have to create a folder called src/ 
