@@ -11,3 +11,5 @@ npm install
 ```
 
 After installation, you may have to create a folder called src/ 
+
+This is the end of the tutorial
