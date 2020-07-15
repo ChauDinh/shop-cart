@@ -1,0 +1,32 @@
+extends ../layout/structure.pug
+
+block nav
+  .login__nav
+    .container-fluid.d-flex.align-items-center.login__logo.p-0
+      a(href="/")
+        img.logo(src='/src/public/assets/logo.jpg', alt='logo')
+      p Đăng Nhập
+    .login__help
+      p Trợ giúp? (Help)
+
+block content
+  .login__content.d-flex.flex-row.align-items-center.justify-content-center
+    .login__image
+      img(src="/src/public/assets/login.png", alt="login")
+      p.title Nền tảng thương mại điện tử mới nhất tại Việt Nam và Đông Nam Á 2020
+    form.login__form(action="/users/login", method="POST")
+      label.text-left.login__label Đăng nhập
+      if (errors)
+        each error in errors 
+          .alert.alert-danger.login__alerts= error
+      .user-email
+        label(for="email") Email
+        input(type="email", name="email", value=values ? values.email : "")
+      .user-password
+        label(for="password") Password
+        input(type="password", name="password", value=values ? values.password : "")
+      button.login-button ĐĂNG NHẬP
+
+      label.text-left Bạn quên mật khẩu?
+      label.text-left Bạn mới biết đến BliBli? 
+        a(href="/users/register") Đăng ký ngay

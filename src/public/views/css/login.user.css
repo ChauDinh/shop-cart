@@ -1,0 +1,89 @@
+.login__nav {
+  padding: 20px 63px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login__nav > .login__logo > p {
+  font-size: 28px;
+  margin-left: 20px !important;
+}
+
+.login__nav > .login__help {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.login__content {
+  padding: 100px 63px;
+  flex-grow: 1;
+  background: #ff8e0a;
+  color: #333;
+}
+
+.login__content > .login__image {
+  margin-right: 60px;
+  width: 300px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+
+.login__content > .login__image > img {
+  width: 220px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.login__content > .login__alerts {
+  width: 500px;
+}
+
+.login__content > .login__form {
+  width: 500px;
+  padding: 20px 40px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.login__content > .login__form label {
+  text-align: left;
+}
+
+.login__content > .login__form > .login__label {
+  font-size: 20px;
+  color: #333;
+  border-bottom: 3px solid #ff8e0a;
+}
+
+.login__content > .login__form > .user-email label,
+.login__content > .login__form > .user-password label {
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.login__content > .login__form > .user-email input,
+.login__content > .login__form > .user-password input {
+  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); */
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.login__content > .login__form > .login-button {
+  padding: 0.5rem 1.3rem;
+  border-radius: 0;
+  border: none;
+  background-color: #ff8e0a;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}

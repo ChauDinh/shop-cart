@@ -11,18 +11,17 @@ const cartRoute = require("./routes/cart.route");
 mongoose.connect(
   process.env.MONGO_URL || "mongodb://localhost:27017/shop-cart-db",
   {
-    useNewUrlParser: true
+    useNewUrlParser: true,
   }
 );
 
 const app = express();
 
 app.set("view engine", "pug");
-app.set("views", "public/views");
+app.set("views", "src/public/views");
 
-app.use(express.static("./"));
-app.use("/public/src/uploads", express.static("./public/src/uploads"));
-app.use("/public/src/images", express.static("./public/src/images"));
+app.use(express.static("./src/public"));
+app.use("/src/public", express.static("./src/public"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,40 +36,13 @@ app.get("/", async (req, res) => {
   const userId = req.signedCookies.userId;
   const user = await User.findOne({ _id: userId });
   const cart = await Cart.findOne({ owner: userId });
-  // Get dữ liệu từ freecodecamp/news
-  // const browser = await puppeteer.launch({ headless: true });
-  // const page = await browser.newPage();
-  // await page.goto("https://www.freecodecamp.org/news/");
-
-  // Script dùng để craw dữ liệu vào biến articles và images
-  // const getArticles = await page.evaluate(() => {
-  //   let titleLinks = document.querySelectorAll(".post-card-title");
-  //   let imageLinks = document.querySelectorAll(".post-card-image");
-  //   titleLinks = [...titleLinks];
-  //   imageLinks = [...imageLinks];
-  //   let articles = titleLinks.map(link => ({
-  //     title: link.innerText,
-  //     url: link.getElementsByTagName("a")[0].href
-  //   }));
-  //   let images = imageLinks.map(image => ({
-  //     image:
-  //       image.getAttribute("src").indexOf("https") !== -1
-  //         ? `${image.getAttribute("src")}`
-  //         : `https://freecodecamp.org${image.getAttribute("src")}`
-  //   }));
-  //   return {
-  //     articles,
-  //     images
-  //   };
-  // });
-  // await browser.close();
 
   res.render("index", {
     products: products,
     userId: userId,
     user: user,
     path: req.signedCookies.avatar,
-    cartNumber: cart ? cart.items.length : ""
+    cartNumber: cart ? cart.items.length : "",
     // getArticles: getArticles
   });
 });
@@ -82,8 +54,8 @@ app.get("/search", async (req, res) => {
   const cart = await Cart.findOne({ owner: userId });
   const matchedProducts = await Product.find({
     categories: {
-      $in: [`${q}`]
-    }
+      $in: [`${q}`],
+    },
   });
 
   res.render("index", {
@@ -92,7 +64,7 @@ app.get("/search", async (req, res) => {
     user: user,
     path: user ? user.avatar : "",
     query: q,
-    cartNumber: cart ? cart.items.length : ""
+    cartNumber: cart ? cart.items.length : "",
   });
 });
 

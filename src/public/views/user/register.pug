@@ -1,0 +1,61 @@
+//- extends ../layout/structure.pug
+
+//- block content
+//-   .container.register
+//-     p.title Đăng Ký Thành Viên
+//-     if (errors)
+//-       each error in errors 
+//-         .alert.alert-danger= error
+//-     hr
+//-     form(action="/users/register", method="POST", enctype="multipart/form-data")
+//-       .user-name
+//-         label(for="username") Tên đăng nhập
+//-         input(type="text", name="username", value=values ? values.username : "")
+//-       .user-email
+//-         label(for="email") Email
+//-         input(type="email", name="email", value=values ? values.email : "")
+//-       .user-password
+//-         label(for="password") Password
+//-         input(type="password", name="password", value=values ? values.password : "")
+//-       .user-avatar
+//-         label(for="avatar") Avatar
+//-         input#avatar.form-control-file(type="file", name="avatar", value=values ? values.avatar : "") 
+//-       button.register-button Register
+
+extends ../layout/structure.pug
+
+block nav
+  .login__nav
+    .container-fluid.d-flex.align-items-center.login__logo.p-0
+      a(href="/")
+        img.logo(src='/src/public/assets/logo.jpg', alt='logo')
+      p Đăng Ký
+    .login__help
+      p Trợ giúp? (Help)
+
+block content
+  .login__content.d-flex.flex-row.align-items-center.justify-content-center
+    .login__image
+      img(src="/src/public/assets/login.png", alt="login")
+      p.title Nền tảng thương mại điện tử mới nhất tại Việt Nam và Đông Nam Á 2020
+    form.login__form(action="/users/register", method="POST", enctype="multipart/form-data")
+      label.text-left.login__label Đăng ký
+      if (errors)
+        each error in errors 
+          .alert.alert-danger.login__alerts= error
+      .user-name
+        label(for="username") Tên đăng nhập
+        input(type="text", name="username", value=values ? values.username : "")
+      .user-email
+        label(for="email") Email
+        input(type="email", name="email", value=values ? values.email : "")
+      .user-password
+        label(for="password") Password
+        input(type="password", name="password", value=values ? values.password : "")
+      .user-avatar
+        label(for="avatar") Ảnh đại diện
+        input#avatar.form-control-file(type="file", name="avatar", value=values ? values.avatar : "")
+      button.login-button ĐĂNG KÝ
+
+      label.text-left Bạn đã có tài khoản BliBli? 
+        a(href="/users/login") Đăng nhập

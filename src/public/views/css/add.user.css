@@ -1,0 +1,45 @@
+/* Some classes are inherited from login page. There are just ones for register page only */
+
+.user-name,
+.user-email,
+.user-password,
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.user-name label,
+.user-email label,
+.user-password label,
+.user-avatar label {
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 0;
+  width: 100px;
+}
+
+.user-name input,
+.user-email input,
+.user-password input,
+.user-avatar input {
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.5rem;
+  font-size: 12px;
+}
+
+.user-name input:focus,
+.user-email input:focus,
+.user-password input:focus {
+  outline: none;
+}
+
+.user-avatar input:hover {
+  cursor: pointer;
+}
+.user-avatar input:focus {
+  border: none;
+  outline: none;
+}

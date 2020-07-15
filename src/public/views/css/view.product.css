@@ -46,6 +46,7 @@
 .product-info-star {
   color: #ed8a19;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .product-info-price {
