@@ -249,6 +249,115 @@ nav > .container-fluid > .show > .show {
   flex-direction: column;
 }
 
+/* BliBli Deals */
+.current-deals__wrapper {
+  padding: 0px 0px;
+  margin: 40px 48px;
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.current-deals__wrapper > .current-deals__countdown {
+  width: 240px;
+  height: 100%;
+  padding: 16px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.current-deals__wrapper > .current-deals__countdown > .countdown__title {
+  font-weight: 700;
+  color: #ff8e0a;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.current-deals__wrapper > .current-deals__countdown > .countdown__title > h6 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.current-deals__wrapper > .current-deals__countdown > p {
+  font-size: 8px;
+}
+
+.current-deals__wrapper
+  > .current-deals__countdown
+  > .countdown__clock
+  > .countdown__days,
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+  font-size: 12px;
+  margin-right: 5px;
+  width: 40px;
+  text-align: center;
+  margin-top: 26px;
+}
+
+.days__display,
+.hours__display,
+.minutes__display,
+.seconds__display {
+  font-size: 18px;
+  background: #2a2546;
+  color: #fff;
+  padding: 2px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.current-deals__wrapper > .current-deals__show {
+  margin-left: 20px !important;
+  margin-right: 0 !important;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: calc(100% - 240px - 20px);
+}
+
+.current-deals__wrapper > .current-deals__show > .deals-show__image {
+  padding: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: calc(100% / 5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-deals__wrapper > .current-deals__show > .deals-show__image > img {
+  height: 65%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.current-deals__wrapper > .current-deals__show > .deals-show__image > p {
+  font-size: 12px;
+  margin-top: 5px !important;
+  text-align: center;
+}
+
+.current-deals__wrapper > .current-deals__show > .deals-show__image > span {
+  font-size: 12px;
+  text-align: center;
+  background: #ff8e0a;
+  color: #fff;
+  padding: 3px 0;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 /* Footer */
 
 footer {

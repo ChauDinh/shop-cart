@@ -39,6 +39,20 @@ app.get("/", async (req, res) => {
 
   res.render("index", {
     products: products,
+    categories: [
+      "Điện thoại, máy tính bảng",
+      "Laptop văn phòng, workstation",
+      "Máy ảnh kỹ thuật số",
+      "Văn phòng phẩm",
+      "Sách, Ebook",
+      "Máy đọc sách, Kindle",
+      "Thời trang nữ",
+      "Thời trang nam",
+      "Thời trang trẻ em",
+      "Gaming gear",
+      "Nội thất, thiết bị gia dụng",
+      "PC, phụ kiện công nghệ",
+    ],
     userId: userId,
     user: user,
     path: req.signedCookies.avatar,
@@ -59,6 +73,20 @@ app.get("/search", async (req, res) => {
   });
 
   res.render("index", {
+    categories: [
+      "Điện thoại, máy tính bảng",
+      "Laptop văn phòng, workstation",
+      "Máy ảnh kỹ thuật số",
+      "Văn phòng phẩm",
+      "Sách, Ebook",
+      "Máy đọc sách, Kindle",
+      "Thời trang nữ",
+      "Thời trang nam",
+      "Thời trang trẻ em",
+      "Gaming gear",
+      "Nội thất, thiết bị gia dụng",
+      "PC, phụ kiện công nghệ",
+    ],
     products: matchedProducts,
     value: q,
     user: user,
