@@ -272,13 +272,17 @@ nav > .container-fluid > .show > .show {
   align-items: flex-start;
   justify-content: space-between;
   height: 250px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0 !important;
 }
 
 .current-deals__wrapper > .current-deals__countdown {
   width: 240px;
   height: 100%;
   padding: 16px 12px !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .current-deals__wrapper > .current-deals__countdown > .countdown__title {
@@ -339,26 +343,23 @@ nav > .container-fluid > .show > .show {
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image {
   padding: 0 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+  border-radius: 3px;
+  /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); */
   height: 100%;
   width: calc(100% / 5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.current-deals__wrapper > .current-deals__show > .deals-show__image:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image {
   margin: 0 5px !important;
-}
-
-.current-deals__wrapper
-  > .current-deals__show
-  > .deals-show__image:first-child {
-  margin-left: 0 !important;
-}
-
-.current-deals__wrapper > .current-deals__show > .deals-show__image:last-child {
-  margin-right: 0 !important;
 }
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image > img {
