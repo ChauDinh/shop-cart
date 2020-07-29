@@ -18,11 +18,11 @@ block content
           li(data-target='#carouselExampleIndicators', data-slide-to='2')
         .carousel-inner
           .carousel-item.active
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-1.jpg', alt='...')
+            img.d-block.w-100.h-100(src='/src/public/assets/banner-01.jpg', alt='...')
           .carousel-item
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-2.jpg', alt='...')
+            img.d-block.w-100.h-100(src='/src/public/assets/banner-01.jpg', alt='...')
           .carousel-item
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-1.jpg', alt='...')
+            img.d-block.w-100.h-100(src='/src/public/assets/banner-01.jpg', alt='...')
         a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
           span.carousel-control-prev-icon(aria-hidden='true')
           span.sr-only Previous
@@ -56,31 +56,31 @@ block content
         .col.deals-show__image
           img(src="/src/public/assets/images/deal-show.jpg", alt="deal-show")
           p Quần áo trẻ em
-          span 20%
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
         .col.deals-show__image
           img(src="/src/public/assets/images/deal-show-02.jpg", alt="deal-show")
           p Quần áo nữ
-          span 20%
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
         .col.deals-show__image
           img(src="/src/public/assets/images/deal-show.jpg", alt="deal-show")
           p Quần áo trẻ em
-          span 20%
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
         .col.deals-show__image
           img(src="/src/public/assets/images/deal-show-02.jpg", alt="deal-show")
           p Quần áo nữ
-          span 20%
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
         .col.deals-show__image
           img(src="/src/public/assets/images/deal-show-03.jpg", alt="deal-show")
           p Quần áo nam
-          span 20%
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
     .hot-products
       if query 
         p.title
           | # #{query}
       else
-        p.title Tìm kiếm nhiều nhất
+        p.title Những sản phẩm nổi bật
       hr
-      #hot__slick(data-slick='{"slidesToShow": 4, "slidesToScroll": 4}')
+      #hot__slick(data-slick='{"slidesToShow": 6, "slidesToScroll": 1}')
         p.slick__content First image
         p.slick__content Second image
         p.slick__content Third image
@@ -89,6 +89,10 @@ block content
         p.slick__content Sixth image
         p.slick__content Seventh image
         p.slick__content Eight image
+        p.slick__content Ninth image
+        p.slick__content Tenth image
+        p.slick__content Eleventh image
+        p.slick__content Twelfth image
       //- ul.list 
       //-   each product in products
       //-     .item
@@ -108,3 +112,23 @@ block content
       //-             a(href="/products/"+product._id) 
       //-               p $9.99
           
+    .hot-products
+      if query 
+        p.title
+          | # #{query}
+      else
+        p.title Từ khóa tìm kiếm hot
+      hr
+      #hot-keys__slick(data-slick='{"slidesToShow": 6, "slidesToScroll": 1}')
+        p.slick__content First image
+        p.slick__content Second image
+        p.slick__content Third image
+        p.slick__content Forth image
+        p.slick__content Fifth image
+        p.slick__content Sixth image
+        p.slick__content Seventh image
+        p.slick__content Eight image
+        p.slick__content Ninth image
+        p.slick__content Tenth image
+        p.slick__content Eleventh image
+        p.slick__content Twelfth image

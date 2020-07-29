@@ -12,7 +12,7 @@
 }
 
 .product-menu {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .product-menu > .list-group {
@@ -25,16 +25,17 @@
   padding: 12px 12px;
   color: #333;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .banner-carousel {
   width: 100%;
-  height: 517px;
+  height: 493px;
   margin-left: 20px;
 }
 
 .banner-carousel > .carousel-inner {
-  height: 517px;
+  height: 493px;
 }
 
 .banner-carousel > .carousel-inner > .carousel-item {
@@ -63,6 +64,10 @@
   text-transform: uppercase;
   font-weight: bolder;
   font-size: 1.3rem;
+}
+
+.hot-products > hr {
+  border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 
 .list {
@@ -130,3 +135,11 @@
   color: #000 !important;
   font-size: 30px !important;
 }
+
+/* .slick-next:before {
+  content: ">" !important;
+}
+
+.slick-prev:before {
+  content: "<" !important;
+} */

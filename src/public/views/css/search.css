@@ -1,0 +1,105 @@
+.search-routes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 63px;
+  background: #f9f9f9;
+  color: #333;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.search-routes > a {
+  color: rgb(90, 90, 90) !important;
+  margin-right: 10px;
+}
+
+.search-routes > svg {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.search-routes > p {
+  color: #000;
+}
+
+.filter-bar {
+  display: inline-block;
+  width: 240px;
+}
+
+.filter-bar__title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.filter-bar > .filter-bar__title > p {
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.filter-bar > .filter-bar__title > svg {
+  margin-right: 3px;
+}
+
+.filter-bar > .card {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.filter-bar > .card > .card-body {
+  padding: 0 !important;
+}
+
+.filter-bar > .card > .card-body > .card-title {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.filter-bar > .card > .card-body > .list-group > .list-group-item {
+  border: none !important;
+  padding: 2px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.filter-bar > .card > .card-body > .list-group > .list-group-item > input {
+  position: relative;
+  margin: 0 !important;
+  margin-right: 10px !important;
+}
+
+.filter-bar > .card > .card-body > .list-group > .list-group-item > label {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.filter-bar > .card > .card-body > .list-group > .list-group-item > svg {
+  color: #ff8e0a;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.filter-bar > .card > .card-body > .list-group > .list-group-item > form input {
+  border-radius: 0;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.submit-btn {
+  background: #ff8e0a !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  width: 100%;
+}
+
+.search-products {
+  margin-left: 20px;
+}
+
+.search-products > .search__title {
+  font-size: 18px;
+  font-weight: 300;
+}

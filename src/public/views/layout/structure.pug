@@ -80,20 +80,21 @@ html(lang='en')
                 p.text-center= cartNumber
               else 
                 p.text-center 0
-        .container-fluid.pl-5.pr-5.pt-0.pb-0
-          .btn-group
-            button.btn.dropdown-toggle.categories-btn.d-flex.justify-content-between.align-items-center(type='button', data-toggle='dropdown', data-display='static', aria-haspopup='true', aria-expanded='false')
-              | Danh mục sản phẩm
-          .recommendation-menu
-            p.recommendation-item Thương hiệu nổi bật:
-            a.text-secondary.recommendation-item(href='#') Apple
-            a.text-secondary.recommendation-item(href='#') Samsung
-            a.text-secondary.recommendation-item(href='#') Cannon
-            a.text-secondary.recommendation-item(href='#') Dell
-            a.text-secondary.recommendation-item(href='#') HP
-            a.text-secondary.recommendation-item(href='#') Asus
-            a.text-secondary.recommendation-item(href='#') Lenovo
-            a.text-secondary.recommendation-item(href='#') Sony
+        block categories
+          .container-fluid.pl-5.pr-5.pt-0.pb-0
+            .btn-group
+              button.btn.dropdown-toggle.categories-btn.d-flex.justify-content-between.align-items-center(type='button', data-toggle='dropdown', data-display='static', aria-haspopup='true', aria-expanded='false')
+                | Danh mục sản phẩm
+            .recommendation-menu
+              p.recommendation-item Thương hiệu nổi bật:
+              a.text-secondary.recommendation-item(href='#') Apple
+              a.text-secondary.recommendation-item(href='#') Samsung
+              a.text-secondary.recommendation-item(href='#') Cannon
+              a.text-secondary.recommendation-item(href='#') Dell
+              a.text-secondary.recommendation-item(href='#') HP
+              a.text-secondary.recommendation-item(href='#') Asus
+              a.text-secondary.recommendation-item(href='#') Lenovo
+              a.text-secondary.recommendation-item(href='#') Sony
     .wrapper
       block content
 
