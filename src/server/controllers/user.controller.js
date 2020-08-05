@@ -19,7 +19,7 @@ module.exports.view = async (req, res) => {
   res.render("user/view", {
     user: user,
     path: user.avatar,
-    cartNumber: cart ? cart.items.length : ""
+    cartNumber: cart ? cart.items.length : "",
   });
 };
 
@@ -28,7 +28,7 @@ module.exports.add = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, salt),
-    avatar: req.file ? req.file.path : ""
+    avatar: req.file ? req.file.path : "",
   });
   await user.save();
   res.redirect("/users/login");
@@ -41,7 +41,7 @@ module.exports.auth = async (req, res) => {
   if (!user) {
     res.render("user/login", {
       errors: ["User does not exist!"],
-      values: req.body
+      values: req.body,
     });
     return;
   }
@@ -49,20 +49,20 @@ module.exports.auth = async (req, res) => {
   if (!bcrypt.compareSync(password, user.password)) {
     res.render("user/login", {
       errors: ["Oops! Something went wrong!"],
-      values: req.body
+      values: req.body,
     });
     return;
   }
   console.log(user.avatar);
 
   res.cookie("userId", user._id, {
-    signed: true
+    signed: true,
   });
   res.cookie("username", user.username, {
-    signed: true
+    signed: true,
   });
   res.cookie("avatar", user.avatar, {
-    signed: true
+    signed: true,
   });
 
   if (req.signedCookies.productId) {
@@ -74,16 +74,26 @@ module.exports.auth = async (req, res) => {
 };
 
 module.exports.update = async (req, res) => {
-  User.findOneAndUpdate(
-    { _id: req.signedCookies.userId },
+  console.log(req.body);
+  await User.findByIdAndUpdate(
     {
-      $set: {
-        username: req.body.updateUsername,
-        email: req.body.updateEmail,
-        password: bcrypt.hashSync(req.body.updatePassword, salt)
-      }
-    }
-  ).exec(function(err) {
+      _id: req.signedCookies.userId,
+    },
+    req.body.updatePassword.length !== 0
+      ? {
+          $set: {
+            username: req.body.updateUsername,
+            email: req.body.updateEmail,
+            password: bcrypt.hashSync(req.body.updatePassword, salt),
+          },
+        }
+      : {
+          $set: {
+            username: req.body.updateUsername,
+            email: req.body.updateEmail,
+          },
+        }
+  ).exec(function (err) {
     if (err) {
       console.error(err);
       res.status(500).send(err);
@@ -92,3 +102,8 @@ module.exports.update = async (req, res) => {
     }
   });
 };
+
+/**
+ * -1 -4 5 0 -3 3 -2 2 9 8 6 10
+ * a  b
+ */

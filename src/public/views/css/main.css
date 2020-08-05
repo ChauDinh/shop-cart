@@ -57,7 +57,7 @@ li {
 
 body {
   font-family: "Be Vietnam", sans-serif !important;
-  background-color: #fff !important;
+  background-color: #f2f2f2 !important;
   /* overflow-x: hidden; */
   position: relative;
   display: flex;
@@ -67,6 +67,7 @@ body {
 
 nav {
   background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav > .advertisements {
@@ -85,11 +86,11 @@ nav > .nav-info {
 }
 
 nav > .nav-info > .nav-contact {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 nav > .nav-info > .nav-other {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 nav > div {
@@ -101,7 +102,7 @@ nav > .nav-logo {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 16px calc((100% - 1270px) / 2) !important;
+  padding: 36px calc((100% - 1270px) / 2) !important;
 }
 
 nav > div .logo {
@@ -222,11 +223,11 @@ nav > .categories {
 }
 
 nav > .categories > .btn-group > .categories-btn {
-  background: #ff8e0a !important;
-  color: #fff;
+  background: #f9f9f9 !important;
+  color: #000;
   width: 240px;
-  border-radius: 0 !important;
-  font-size: 14px;
+  border-radius: 3px 3px 0 0 !important;
+  font-size: 16px;
   text-transform: uppercase;
   padding: 10px !important;
 }
@@ -281,16 +282,17 @@ nav > .container-fluid > .show > .show {
 .current-deals__wrapper > .current-deals__countdown {
   width: 240px;
   height: 100%;
-  padding: 16px 12px !important;
-  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+  padding: 12px 12px !important;
+  border-right: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .current-deals__wrapper > .current-deals__countdown > .countdown__title {
   font-weight: 700;
-  color: #ff8e0a;
+  color: red;
   display: flex;
   align-items: center;
   margin-bottom: 10px !important;
+  font-size: 20px;
 }
 
 .current-deals__wrapper > .current-deals__countdown > .countdown__title > h6 {
@@ -343,9 +345,7 @@ nav > .container-fluid > .show > .show {
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image {
   padding: 0 !important;
-  /* border: 1px solid rgba(0, 0, 0, 0.1); */
   border-radius: 3px;
-  /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); */
   height: 100%;
   width: calc(100% / 5);
   display: flex;
@@ -363,11 +363,23 @@ nav > .container-fluid > .show > .show {
 }
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image > img {
-  height: 65%;
+  height: 170px;
   margin-top: 10px !important;
   margin-left: 10px !important;
   margin-right: 10px !important;
   border-radius: 3px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.current-deals__wrapper
+  > .current-deals__show
+  > .deals-show__image:hover
+  > img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .current-deals__wrapper > .current-deals__show > .deals-show__image > p {
@@ -394,7 +406,7 @@ nav > .container-fluid > .show > .show {
 footer {
   flex-shrink: 1;
   width: 100%;
-  background-color: #000;
+  background-color: #fff;
   display: flex !important;
   flex-direction: column;
   justify-content: space-between;
@@ -405,12 +417,13 @@ footer {
 }
 
 footer > .footer-wrapper {
-  font-size: 12px;
+  font-size: 14px;
   width: 100%;
   padding: 20px calc((100% - 1270px) / 2) !important;
   padding-bottom: 16px;
-  background-color: #2a2546;
-  color: #f0f0f0;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
 }
 
 .footer-wrapper .col-sm {
@@ -436,7 +449,7 @@ footer > .footer-wrapper {
 }
 
 .recent-post > .recent-post__content > button {
-  background: #ff8e0a;
+  background: #333;
   padding: 3px 4px !important;
   border: none;
   color: #f0f0f0;
@@ -449,11 +462,11 @@ footer > .footer-wrapper {
 }
 
 .subscribe-form__wrapper {
-  background-color: #000;
+  background-color: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px !important;
+  padding: 10px !important;
 }
 
 .subscribe-form__wrapper > input {
@@ -461,17 +474,18 @@ footer > .footer-wrapper {
   margin-right: 10px !important;
   border: none;
   background: transparent;
-  color: #f0f0f0;
+  color: #c5c5c5;
 }
 
 .subscribe-form__wrapper > input:focus {
   border: none;
   outline: none;
+  color: #333;
 }
 
 .subscribe-form__wrapper > button {
   border: none;
-  background: #ff8e0a;
+  background: #333;
   color: #f0f0f0;
   padding: 5px 7px !important;
 }

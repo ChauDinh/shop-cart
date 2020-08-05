@@ -13,6 +13,10 @@
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.login__nav > .login__logo img {
+  width: 240px;
+}
+
 .login__nav > .login__logo > p {
   font-size: 28px;
   margin-left: 20px !important;
@@ -87,11 +91,11 @@
 
 .login__content > .login__form > .login-button {
   padding: 0.5rem 1.3rem !important;
-  border-radius: 0;
+  border-radius: 3px;
   border: none;
   background-color: #ff8e0a;
   color: #fff;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
   width: 100%;

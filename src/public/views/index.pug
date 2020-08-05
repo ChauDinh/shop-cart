@@ -11,26 +11,29 @@ block content
               p= category
               svg.bi.bi-chevron-right(width='1em', height='1em', viewbox='0 0 16 16', fill='currentColor', xmlns='http://www.w3.org/2000/svg')
                 path(fill-rule='evenodd', d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z')
-      #carouselExampleIndicators.carousel.slide.banner-carousel(data-ride='carousel')
-        ol.carousel-indicators
-          li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
-          li(data-target='#carouselExampleIndicators', data-slide-to='1')
-          li(data-target='#carouselExampleIndicators', data-slide-to='2')
-        .carousel-inner
-          .carousel-item.active
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-1.jpg', alt='...')
-          .carousel-item
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-01.jpg', alt='...')
-          .carousel-item
-            img.d-block.w-100.h-100(src='/src/public/assets/banner-2.jpg', alt='...')
-        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
-          span.carousel-control-prev-icon(aria-hidden='true')
-          span.sr-only Previous
-        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
-          span.carousel-control-next-icon(aria-hidden='true')
-          span.sr-only Next
+      .banners-carousel__wrapper
+        .banners-carousel
+         #carouselExampleControls.carousel.slide(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              img.d-block(src='https://ae01.alicdn.com/kf/H2470c1762e2f4be89b80cfc7348ece23I.png', alt='...')
+            .carousel-item
+              img.d-block(src='https://ae01.alicdn.com/kf/H588b24717af54627a15434ae949a9312v.png', alt='...')
+            .carousel-item
+              img.d-block(src='https://ae01.alicdn.com/kf/H02b4f9164df3425fa5aea640a2ca258eW.png', alt='...')
+          a.carousel-control-prev(href='#carouselExampleControls', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+          a.carousel-control-next(href='#carouselExampleControls', role='button', data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+        .banners 
+          img(src="/src/public/assets/banner-clock.jpg", alt="banner")
+          img(src="/src/public/assets/banner-sofa.jpg", alt="banner")
+          img(src="/src/public/assets/banner-clock.jpg", alt="banner")
+          img(src="/src/public/assets/banner-burger.jpg", alt="banner")
       .static-banners
-        p This is static banner 01
+        img(src="/src/public/assets/static-banner.png", alt="static")
 
   .container-fluid
     .current-deals__wrapper
@@ -39,7 +42,7 @@ block content
           svg.bi.bi-gift-fill.mr-1(width='1em', height='1em', viewbox='0 0 16 16', fill='currentColor', xmlns='http://www.w3.org/2000/svg')
             path(fill-rule='evenodd', d='M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3z')
             path(d='M15 7v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7h6zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9H2.5z')
-          h6 BliBli Deal
+          h6 BLIBLI DEAL
         p Hãy cập nhập để không bỏ lỡ những deal giá tốt nhất bạn nhé!
         .countdown__clock.d-flex.align-items-center.justify-content-between
           .countdown__days
@@ -56,25 +59,25 @@ block content
             p Secs
       .current-deals__show.row
         .col.deals-show__image
-          img(src="/src/public/assets/images/deal-show.png", alt="deal-show")
-          p Quần áo trẻ em
-          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
+          img(src="/src/public/assets/images/deal-show-3.jpg", alt="deal-show")
+          //- p THỜI TRANG TRẺ EM
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
         .col.deals-show__image
-          img(src="/src/public/assets/images/deal-show-02.png", alt="deal-show")
-          p Ba lô, túi xách
-          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
+          img(src="/src/public/assets/images/deal-show-5.jpg", alt="deal-show")
+          //- p SNEAKER, GIÀY THỂ THAO
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
         .col.deals-show__image
-          img(src="/src/public/assets/images/deal-show-03.png", alt="deal-show")
-          p Bàn phím cơ
-          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
+          img(src="/src/public/assets/images/deal-show-4.jpg", alt="deal-show")
+          //- p BÀN PHÍM CƠ
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
         .col.deals-show__image
-          img(src="/src/public/assets/images/deal-show-04.png", alt="deal-show")
-          p Đầm nữ
-          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
+          img(src="/src/public/assets/images/deal-show-1.jpg", alt="deal-show")
+          //- p THỜI TRANG NỮ
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
         .col.deals-show__image
-          img(src="/src/public/assets/images/deal-show-05.png", alt="deal-show")
-          p Áo sơ mi nam
-          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: #ff8e0a") - 20%
+          img(src="/src/public/assets/images/deal-show-2.jpg", alt="deal-show")
+          //- p THỜI TRANG NAM
+          p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
     .hot-products
       if query 
         p.title

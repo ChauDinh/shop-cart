@@ -1,10 +1,109 @@
 /* User View */
 
 .user-view {
-  display: grid;
-  grid-template-columns: 9fr 3fr;
-  grid-gap: 2rem;
-  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  width: 100%;
+}
+
+.user-view > .user__my-profile {
+  width: 240px;
+  margin-right: 20px !important;
+}
+
+.user-view > .user__my-profile > .user__title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px !important;
+  height: 69px;
+}
+
+.user-view > .user__my-profile > .user__title > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-right: 16px !important;
+}
+
+.user-view > .user__my-profile > .user__title > .update__profile {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9c9c9;
+}
+
+.user-view
+  > .user__my-profile
+  > .user__title
+  > .update__profile
+  > .user__username {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.user-view > .user__my-profile > .user__title > .update__profile > svg {
+  margin-right: 3px !important;
+}
+
+.user-view > .user__my-profile > .card {
+  padding: 10px !important;
+  margin-top: 20px !important;
+}
+
+.user-view > .user__my-profile > .card > .card-body > .card-title {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.user-view > .user__my-profile > .card > .card-body > .card-title > svg {
+  margin-right: 7px !important;
+  color: #ff8e0a;
+}
+
+.user-view > .user__my-profile > .card > .card-body > .list-group {
+  margin-top: 10px !important;
+  padding-left: 15px !important;
+}
+
+.user-view
+  > .user__my-profile
+  > .card
+  > .card-body
+  > .list-group
+  > .list-group-item {
+  border: none;
+  padding: 5px 10px !important;
+}
+
+.user-view
+  > .user__my-profile
+  > .card
+  > .card-body
+  > .list-group
+  > .list-group-item
+  > a {
+  color: #757575;
+  font-size: 14px;
+}
+
+.user-view
+  > .user__my-profile
+  > .card
+  > .card-body
+  > .list-group
+  > .list-group-item
+  > .active {
+  color: #ff8e0a;
+}
+
+.user-update-info {
+  flex-grow: 1;
 }
 
 .user-info-avatar {
@@ -40,9 +139,24 @@
 }
 
 .user-update-info {
-  padding: 1rem;
-  padding-right: 3rem;
+  padding: 0 20px !important;
+  padding-bottom: 20px !important;
+  padding-right: 3rem !important;
   background-color: #fff;
+}
+
+.user-update-info > .form__title {
+  padding-top: 10px !important;
+  height: 69px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-update-info > .form__title > .subtitle {
+  font-size: 14px;
+  color: #757575;
+  font-weight: 500;
 }
 
 .user-info-username,
@@ -50,7 +164,7 @@
 .user-info-update-password {
   display: flex;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 20px !important;
 }
 
 .user-info-username label,
@@ -58,31 +172,38 @@
 .user-info-update-password label {
   width: 150px;
   text-align: right;
-  margin-right: 1rem;
-  margin-bottom: 0;
+  margin-right: 1rem !important;
+  margin-bottom: 0 !important;
 }
 
 .user-info-username input,
 .user-info-email input,
 .user-info-update-password input {
   flex-grow: 1;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
-  padding: 0.3rem 0.5rem;
-  font-weight: lighter;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px !important;
+  font-weight: 500;
+  font-size: 16px;
+  color: #757575;
+}
+
+.user-info-username input:focus,
+.user-info-email input:focus,
+.user-info-update-password input:focus {
+  outline: none;
 }
 
 .user-info-button {
-  margin-top: 2rem;
-  background-color: #3561d9;
-  color: #f4f4f4;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  margin-top: 2rem !important;
+  background-color: #ff8e0a;
+  color: #fff;
+  padding: 0.5rem 1rem !important;
+  border-radius: 3px;
   outline: none;
   border: none;
-  margin-left: 50%;
-  transform: translate(-50%, 0);
+  margin-left: 50% !important;
+  transform: translate(-50%, 0) !important;
 }
 
 .user-info-button:focus {

@@ -28,43 +28,83 @@
   text-transform: uppercase;
 }
 
-.banner-carousel {
+.banners-carousel__wrapper {
+  flex-grow: 1;
+  padding: 20px 20px 0 20px !important;
+  width: calc(100% - 480px - 40px);
+}
+
+.banners-carousel__wrapper > .banners-carousel {
   width: 100%;
-  height: 503px;
-  margin-left: 20px !important;
+  height: 290px;
 }
 
-.carousel-indicators {
-  margin: 0 15% !important;
+.banners-carousel__wrapper > .banners-carousel .carousel-inner {
+  height: 100%;
+  display: flex;
 }
 
-.carousel-indicators li {
-  margin-left: 3px !important;
-  margin-right: 3px !important;
-  z-index: 1000 !important;
+.banners-carousel__wrapper
+  > .banners-carousel
+  > .carousel
+  > .carousel-inner
+  > .carousel-item {
+  height: 100%;
+  transition: transform 1s ease-in-out !important;
+  transition: transform 1s ease-in-out, -webkit-transform 0.1s ease-in-out !important;
+  border-radius: 10px;
 }
 
-.banner-carousel > .carousel-inner {
-  height: 503px;
+.banners-carousel__wrapper
+  > .banners-carousel
+  > .carousel
+  > .carousel-inner
+  > .carousel-item.active {
+  display: block !important;
 }
 
-.banner-carousel > .carousel-inner > .carousel-item {
-  height: 100% !important;
+.banners-carousel__wrapper
+  > .banners-carousel
+  .carousel-inner
+  .carousel-item
+  > img {
+  width: 100%;
+  height: 290px;
+  border-radius: 10px;
 }
 
-.banner-carousel > .carousel-control-prev {
-  justify-content: flex-start;
-  padding-left: 20px;
+.banners-carousel__wrapper > .banners-carousel .carousel-inner .active {
+  display: block !important;
+  transition: transform 1s ease-in-out !important;
+  transition: transform 1s ease-in-out, -webkit-transform 0.1s ease-in-out !important;
 }
-.banner-carousel > .carousel-control-next {
-  justify-content: flex-end;
-  padding-right: 20px;
+
+.banners-carousel__wrapper > .banners {
+  margin-top: 10px !important;
+  height: calc(100% - 290px - 10px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background: #fff;
+  padding: 10px !important;
+  border-radius: 10px;
+}
+
+.banners-carousel__wrapper > .banners > img {
+  height: 100%;
+  justify-self: stretch;
+  border-radius: 10px;
 }
 
 .static-banners {
-  width: 310px;
-  margin-left: 20px !important;
-  background: #d9d9d9;
+  width: 290px;
+  padding-top: 20px !important;
+}
+
+.static-banners > img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
 }
 /* Products */
 

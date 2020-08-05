@@ -1,13 +1,44 @@
 extends ../layout/structure.pug
 
 block content
-  .container.mt-4
-    a.back-home(href="/")
-      p.badge.badge-primary.text-wrap
-        i.fas.fa-arrow-left 
-        | &nbsp; Trở về trang chủ
+  .search-routes
+      a(href="/") Trang chủ
+      | 
+      svg.bi.bi-chevron-right(width='1em', height='1em', viewbox='0 0 16 16', fill='currentColor', xmlns='http://www.w3.org/2000/svg')
+        path(fill-rule='evenodd', d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z')
+      | 
+      p Thông tin tài khoản
+  .container-fluid
     .user-view
-      form.user-update-info(action="/users/update", method="POST")
+      .user__my-profile
+        .user__title
+          if path
+            img(src=process.env.SERVER_URL || "http://localhost:8080/" + path, alt="avatar")
+          .update__profile
+            p.user__username #{user.username}
+            svg.bi.bi-pencil(width='1em', height='1em', viewbox='0 0 16 16', fill='currentColor', xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd', d='M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z')
+              path(fill-rule='evenodd', d='M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z')
+            | Sửa hồ sơ
+        .card(style="border: none")
+          .card-body
+            h6.card-title 
+              svg.bi.bi-person-bounding-box(width='1em', height='1em', viewbox='0 0 16 16', fill='currentColor', xmlns='http://www.w3.org/2000/svg')
+                path(fill-rule='evenodd', d='M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z')
+                path(fill-rule='evenodd', d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+              | Tài khoản của tôi
+            ul.list-group
+              li.list-group-item.list-group-item-action
+                a(href="/").active Hồ Sơ 
+              li.list-group-item.list-group-item-action
+                a(href="/") Ngân Hàng
+              li.list-group-item.list-group-item-action
+                a(href="/") Địa Chỉ
+
+      form.user-update-info(action="/users/update/", method="POST")
+        label.form__title 
+          p Hồ Sơ Của Tôi
+          p.subtitle Quản lý thông tin hồ sơ để bảo mật tài khoản
         .user-info-username
           label(for="updateUsername") Tên đăng nhập 
           input(type="text", name="updateUsername", value=user.username)
@@ -17,15 +48,7 @@ block content
         .user-info-update-password
           label(for="updatePassword") Mật khẩu mới: 
           input(type="password", name="updatePassword")
-        button.user-info-button Cập nhật
-      .user-info-avatar
-        if path
-          img(src=process.env.SERVER_URL || "http://localhost:8080/" + path, alt="")
-        else 
-          button.update-avatar
-            p
-              i.fas.fa-user-plus
-              span &nbsp;
-              |  Upload Avatar
+        button.user-info-button Lưu Thay Đổi
+
 
           
