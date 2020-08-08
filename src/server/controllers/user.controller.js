@@ -74,32 +74,139 @@ module.exports.auth = async (req, res) => {
 };
 
 module.exports.update = async (req, res) => {
-  await User.findByIdAndUpdate(
-    {
-      _id: req.signedCookies.userId,
-    },
-    req.body.updatePassword.length !== 0
-      ? {
+  if (req.body.updatePassword) {
+    if (req.file) {
+      await User.findByIdAndUpdate(
+        {
+          _id: req.signedCookies.userId,
+        },
+        {
+          $set: {
+            username: req.body.updateUsername,
+            email: req.body.updateEmail,
+            password: bcrypt.hashSync(req.body.updatePassword, salt),
+            avatar: req.file.path,
+          },
+        }
+      ).exec(function (err) {
+        if (err) {
+          console.error(err);
+          res.status(500).send(err);
+        } else {
+          res.cookie("userId", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("username", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("avatar", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.redirect("/users/login");
+        }
+      });
+    } else {
+      await User.findByIdAndUpdate(
+        {
+          _id: req.signedCookies.userId,
+        },
+        {
           $set: {
             username: req.body.updateUsername,
             email: req.body.updateEmail,
             password: bcrypt.hashSync(req.body.updatePassword, salt),
           },
         }
-      : {
+      ).exec(function (err) {
+        if (err) {
+          console.error(err);
+          res.status(500).send(err);
+        } else {
+          res.cookie("userId", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("username", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("avatar", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.redirect("/users/login");
+        }
+      });
+    }
+  } else {
+    if (req.file) {
+      await User.findByIdAndUpdate(
+        {
+          _id: req.signedCookies.userId,
+        },
+        {
+          $set: {
+            username: req.body.updateUsername,
+            email: req.body.updateEmail,
+            avatar: req.file.path,
+          },
+        }
+      ).exec(function (err) {
+        if (err) {
+          console.error(err);
+          res.status(500).send(err);
+        } else {
+          res.cookie("userId", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("username", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("avatar", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.redirect("/users/login");
+        }
+      });
+    } else {
+      await User.findByIdAndUpdate(
+        {
+          _id: req.signedCookies.userId,
+        },
+        {
           $set: {
             username: req.body.updateUsername,
             email: req.body.updateEmail,
           },
         }
-  ).exec(function (err) {
-    if (err) {
-      console.error(err);
-      res.status(500).send(err);
-    } else {
-      res.redirect("/");
+      ).exec(function (err) {
+        if (err) {
+          console.error(err);
+          res.status(500).send(err);
+        } else {
+          res.cookie("userId", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("username", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.cookie("avatar", "", {
+            maxAge: 0,
+            overwrite: true,
+          });
+          res.redirect("/users/login");
+        }
+      });
     }
-  });
+  }
 };
 
 module.exports.logout = (req, res) => {

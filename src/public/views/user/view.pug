@@ -37,12 +37,12 @@ block content
               li.list-group-item.list-group-item-action
                 a(href="/users/logout") Đăng Xuất
 
-      form.user-update-info(action="/users/update/", method="POST")
+      form.user-update-info(action="/users/update/", method="POST", enctype="multipart/form-data")
         label.form__title 
           p Hồ Sơ Của Tôi
           p.subtitle Quản lý thông tin hồ sơ để bảo mật tài khoản
         .user-info-username
-          label(for="updateUsername") Tên đăng nhập 
+          label(for="updateUsername") Tên đăng nhập:
           input(type="text", name="updateUsername", value=user.username)
         .user-info-email
           label(for="updateEmail") Email:
@@ -50,6 +50,9 @@ block content
         .user-info-update-password
           label(for="updatePassword") Mật khẩu mới: 
           input(type="password", name="updatePassword")
+        .user-info-update-avatar
+          label(for="update-avatar") Thay ảnh đại diện 
+          input#update-avatar.form-control-file(type="file", name="update-avatar")
         button.user-info-button Lưu Thay Đổi
 
 

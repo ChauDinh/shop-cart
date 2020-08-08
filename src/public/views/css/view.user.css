@@ -161,7 +161,8 @@
 
 .user-info-username,
 .user-info-email,
-.user-info-update-password {
+.user-info-update-password,
+.user-info-update-avatar {
   display: flex;
   align-items: center;
   margin-top: 20px !important;
@@ -169,7 +170,8 @@
 
 .user-info-username label,
 .user-info-email label,
-.user-info-update-password label {
+.user-info-update-password label,
+.user-info-update-avatar label {
   width: 150px;
   text-align: right;
   margin-right: 1rem !important;
@@ -178,7 +180,8 @@
 
 .user-info-username input,
 .user-info-email input,
-.user-info-update-password input {
+.user-info-update-password input,
+.user-info-update-avatar input {
   flex-grow: 1;
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -188,9 +191,15 @@
   color: #757575;
 }
 
+.user-info-update-avatar input {
+  cursor: pointer;
+  max-width: 776px;
+}
+
 .user-info-username input:focus,
 .user-info-email input:focus,
-.user-info-update-password input:focus {
+.user-info-update-password input:focus,
+.user-info-update-avatar input:focus {
   outline: none;
 }
 
