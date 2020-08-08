@@ -10,6 +10,10 @@
   font-size: 14px;
 }
 
+.search__wrapper > .hot-products {
+  box-shadow: none;
+}
+
 .search-routes > a {
   color: rgb(90, 90, 90) !important;
   margin-right: 10px !important;

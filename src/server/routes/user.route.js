@@ -11,6 +11,8 @@ const auth = require("../middlewares/auth.validate");
 
 router.get("/login", controller.login);
 
+router.get("/logout", controller.logout);
+
 router.get("/register", controller.register);
 
 router.get("/:id", auth.member, controller.view);

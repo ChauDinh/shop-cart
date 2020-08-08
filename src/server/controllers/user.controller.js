@@ -74,7 +74,6 @@ module.exports.auth = async (req, res) => {
 };
 
 module.exports.update = async (req, res) => {
-  console.log(req.body);
   await User.findByIdAndUpdate(
     {
       _id: req.signedCookies.userId,
@@ -103,7 +102,10 @@ module.exports.update = async (req, res) => {
   });
 };
 
-/**
- * -1 -4 5 0 -3 3 -2 2 9 8 6 10
- * a  b
- */
+module.exports.logout = (req, res) => {
+  res.cookie("userId", "", {
+    maxAge: 0,
+    overwrite: true,
+  });
+  res.redirect("/users/login");
+};
