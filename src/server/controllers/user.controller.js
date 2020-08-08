@@ -107,5 +107,13 @@ module.exports.logout = (req, res) => {
     maxAge: 0,
     overwrite: true,
   });
+  res.cookie("username", "", {
+    maxAge: 0,
+    overwrite: true,
+  });
+  res.cookie("avatar", "", {
+    maxAge: 0,
+    overwrite: true,
+  });
   res.redirect("/users/login");
 };
