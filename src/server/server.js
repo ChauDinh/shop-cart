@@ -31,6 +31,19 @@ const Product = require("./models/product.model");
 const User = require("./models/user.model");
 const Cart = require("./models/cart.model");
 
+const mockCategories = [
+  "Điện thoại, máy tính bảng",
+  "Laptop",
+  "Máy ảnh kỹ thuật số",
+  "Sách, văn phòng phẩm",
+  "Máy đọc sách, Kindle",
+  "Thời trang nữ",
+  "Thời trang nam",
+  "Thời trang trẻ em",
+  "Gaming gear",
+  "Trang trí nội thất",
+];
+
 app.get("/", async (req, res) => {
   const products = await Product.find().sort({ created_at: -1 });
   const userId = req.signedCookies.userId;
@@ -39,18 +52,7 @@ app.get("/", async (req, res) => {
 
   res.render("index", {
     products: products,
-    categories: [
-      "Điện thoại, máy tính bảng",
-      "Laptop",
-      "Máy ảnh kỹ thuật số",
-      "Sách, văn phòng phẩm",
-      "Máy đọc sách, Kindle",
-      "Thời trang nữ",
-      "Thời trang nam",
-      "Thời trang trẻ em",
-      "Gaming gear",
-      "Trang trí nội thất",
-    ],
+    categories: mockCategories,
     userId: userId,
     user: user,
     path: req.signedCookies.avatar,
@@ -71,18 +73,7 @@ app.get("/search", async (req, res) => {
   });
 
   res.render("search", {
-    categories: [
-      "Điện thoại, máy tính bảng",
-      "Laptop",
-      "Máy ảnh kỹ thuật số",
-      "Sách, văn phòng phẩm",
-      "Máy đọc sách, Kindle",
-      "Thời trang nữ",
-      "Thời trang nam",
-      "Thời trang trẻ em",
-      "Gaming gear",
-      "Trang trí nội thất",
-    ],
+    categories: mockCategories,
     products: matchedProducts,
     value: q,
     user: user,

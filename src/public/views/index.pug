@@ -78,8 +78,9 @@ block content
           img(src="/src/public/assets/images/deal-show-2.jpg", alt="deal-show")
           //- p THỜI TRANG NAM
           p.discount.badge.badge-primary.text-wrap(style="width: 50px; background: red") - 20%
+    
+    p.hot-products__title Những sản phẩm nổi bật
     .hot-products
-      p.title Những sản phẩm nổi bật
       #hot__slick(data-slick='{"slidesToShow": 6, "slidesToScroll": 1}')
         img(src="/src/public/assets/images/deal-show-3.jpg", alt="").slick__content
         img(src="/src/public/assets/images/deal-show-4.jpg", alt="").slick__content
@@ -93,37 +94,27 @@ block content
         img(src="/src/public/assets/images/deal-show-2.jpg", alt="").slick__content
         img(src="/src/public/assets/images/deal-show-3.jpg", alt="").slick__content
         img(src="/src/public/assets/images/deal-show-4.jpg", alt="").slick__content
-      //- ul.list 
-      //-   each product in products
-      //-     .item
-      //-       a(href="/products/"+product._id)
-      //-         img(src=product.image, alt="")
-      //-       .product-info-star
-      //-         i.fas.fa-star 
-      //-         i.fas.fa-star
-      //-         i.fas.fa-star
-      //-         i.fas.fa-star
-      //-         i.fas.fa-star
-      //-       .item-info
-      //-         .item-title
-      //-           a(href="/products/"+product._id)
-      //-             p= product.name
-      //-         .button-view
-      //-             a(href="/products/"+product._id) 
-      //-               p $9.99
           
+    p.hot-products__title Từ khóa tìm kiếm hot
     .hot-products
-      p.title Từ khóa tìm kiếm hot
       #hot-keys__slick(data-slick='{"slidesToShow": 6, "slidesToScroll": 1}')
-        img(src="/src/public/assets/images/deal-show-3.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-4.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-5.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-1.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-2.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-3.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-4.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-5.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-1.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-2.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-3.jpg", alt="").slick__content
-        img(src="/src/public/assets/images/deal-show-4.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-1.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-2.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-3.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-4.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-5.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-6.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-7.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/hot-key-8.jpg", alt="").slick__content
+    
+    p.hot-products__title Thương hiệu nổi bật
+    .hot-products
+      #hot-brand__slick(data-slick='{"slidesToShow": 6, "slidesToScroll": 1}')
+        img(src="/src/public/assets/images/brand-1.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-2.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-3.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-4.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-5.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-6.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-7.jpg", alt="").slick__content
+        img(src="/src/public/assets/images/brand-8.jpg", alt="").slick__content

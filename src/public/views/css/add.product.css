@@ -1,81 +1,90 @@
 .add-product {
-  max-width: 650px !important;
   background-color: #fff;
   border-radius: 5px;
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+  padding: 20px 50px !important;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .add-product .title {
-  font-size: 2rem;
-  margin-top: 2rem;
-  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px !important;
+  color: #ff8e0a;
 }
 
-.add-product .notice {
-  font-size: 0.8rem;
+.add-product > .notice {
+  font-size: 16px;
   color: red;
-  font-style: italic;
+  margin-bottom: 10px !important;
+}
+
+.add-product > .add-product__form {
+  margin-top: 20px !important;
 }
 
 .product-name,
 .product-author,
 .product-categories,
-.product-image {
+.product-image,
+.product-price {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 20px !important;
 }
 
 .product-name label,
 .product-author label,
 .product-categories label,
-.product-image label {
-  font-weight: lighter;
-  text-align: right;
-  margin-right: 1rem;
+.product-image label,
+.product-price label {
+  text-align: left;
+  margin-right: 10px !important;
   margin-bottom: 0;
+  color: #333;
   width: 150px;
 }
 
 .product-name input,
 .product-author input,
 .product-categories input,
-.product-image input {
+.product-image input,
+.product-price input {
   flex-grow: 1;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-  padding: 0.3rem 0.5rem;
-  font-weight: lighter;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 18px !important;
 }
 
-.product-name input,
-.product-author input,
-.product-categories input:focus {
-  border: none;
+.product-image input {
+  max-width: 1010px;
+}
+
+.product-name input:focus,
+.product-author input:focus,
+.product-categories input:focus,
+.product-image input:focus,
+.product-price input:focus {
   outline: none;
 }
 
 .product-image input:hover {
   cursor: pointer;
 }
-.product-image input:focus {
-  border: none;
-  outline: none;
-}
 
 /* Button */
 
 .create-button {
-  padding: 0.5rem 1.3rem;
-  border-radius: 5px;
+  padding: 15px 20px !important;
+  border-radius: 3px;
   border: none;
-  background-color: #3561d9;
+  background-color: #ff8e0a;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
-  margin-left: 50%;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 50% !important;
   transform: translate(-50%, 0);
+  margin-top: 20px !important;
 }

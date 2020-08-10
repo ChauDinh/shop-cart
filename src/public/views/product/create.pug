@@ -1,26 +1,26 @@
 extends ../layout/structure.pug
 
 block content 
-  .container.add-product
-    p.title Thêm sản phẩm vào database
-    span.notice (*) Nếu bạn không phải admin, vui lòng rời khỏi trang này!
-    br
+  .container-fluid.add-product
+    p.title Thêm sản phẩm cho gian hàng
     span.notice (*) Vui lòng điền đầy đủ thông tin sản phẩm. Các ô dưới đây đều bắt buộc!
     if errors
       each error in errors
         .alert.alert-danger= error
-    hr
-    form(action="/products/add", method="POST", enctype="multipart/form-data")
+    form.add-product__form(action="/products/add", method="POST", enctype="multipart/form-data")
       .product-name
-        label(for="name") Name
+        label(for="name") Tên sản phẩm
         input(type="text", name="name", placeholder="tên đầy đủ của sản phẩm", value=values ? values.name : "")
       .product-author
-        label(for="author") Author
+        label(for="author") Nguồn gốc xuất xứ, tác giả
         input(type="text", name="author", placeholder="tên nguồn gốc, xuất xứ, tác giả...", value=values ? values.author : "")
       .product-categories
-        label(for="categories") Categories
+        label(for="categories") Loại, nhóm, mặt hàng
         input(type="text", name="categories", placeholder="mỗi category phân cách nhau bằng dấu phẩy", value=values ? values.categories : "")
       .product-image
         label(for="image") Ảnh sản phẩm
         input#image.form-control-file(type="file", name="image")
-      button.create-button Create
+      .product-price
+        label(for="price") Giá bán
+        input(type="text" name="price", placeholder="giá bán sản phẩm, đơn vị VND")
+      button.create-button Đăng Sản Phẩm
