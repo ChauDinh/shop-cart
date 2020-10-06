@@ -11,6 +11,9 @@ block content
       .product-name
         label(for="name") Tên sản phẩm
         input(type="text", name="name", placeholder="tên đầy đủ của sản phẩm", value=values ? values.name : "")
+      .product-description
+        label(for="description") Mô tả sản phẩm
+        textarea(name="description", rows="5")
       .product-author
         label(for="author") Nguồn gốc xuất xứ, tác giả
         input(type="text", name="author", placeholder="tên nguồn gốc, xuất xứ, tác giả...", value=values ? values.author : "")
@@ -18,9 +21,12 @@ block content
         label(for="categories") Loại, nhóm, mặt hàng
         input(type="text", name="categories", placeholder="mỗi category phân cách nhau bằng dấu phẩy", value=values ? values.categories : "")
       .product-image
-        label(for="image") Ảnh sản phẩm
+        label(for="image") Ảnh đại diện sản phẩm
         input#image.form-control-file(type="file", name="image")
+      .product-images
+        label(for="images") Thư viện ảnh sản phẩm
+        input#images.form-control-file(type="file", name="images")
       .product-price
         label(for="price") Giá bán
-        input(type="text" name="price", placeholder="giá bán sản phẩm, đơn vị VND")
+        input(type="text", name="price", placeholder="giá bán sản phẩm, đơn vị VND")
       button.create-button Đăng Sản Phẩm

@@ -1,10 +1,10 @@
 .add-product {
   background-color: #fff;
-  border-radius: 5px;
-  margin-top: 50px !important;
-  margin-bottom: 50px !important;
+  border-radius: 3px;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
   padding: 20px 50px !important;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .add-product .title {
@@ -15,6 +15,7 @@
 
 .add-product > .notice {
   font-size: 16px;
+  font-weight: 300;
   color: red;
   margin-bottom: 10px !important;
 }
@@ -27,7 +28,9 @@
 .product-author,
 .product-categories,
 .product-image,
-.product-price {
+.product-price,
+.product-description,
+.product-images {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,25 +41,33 @@
 .product-author label,
 .product-categories label,
 .product-image label,
-.product-price label {
+.product-price label,
+.product-description label,
+.product-images label {
   text-align: left;
   margin-right: 10px !important;
   margin-bottom: 0;
   color: #333;
   width: 150px;
+  font-weight: 300;
 }
 
 .product-name input,
 .product-author input,
 .product-categories input,
 .product-image input,
-.product-price input {
+.product-price input,
+.product-description textarea,
+.product-images input {
   flex-grow: 1;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px 18px !important;
+  font-weight: 300;
+  border-radius: 3px;
 }
 
-.product-image input {
+.product-image input,
+.product-images input {
   max-width: 1010px;
 }
 
@@ -64,11 +75,14 @@
 .product-author input:focus,
 .product-categories input:focus,
 .product-image input:focus,
-.product-price input:focus {
+.product-price input:focus,
+.product-description textarea:focus,
+.product-images input:focus {
   outline: none;
 }
 
-.product-image input:hover {
+.product-image input:hover,
+.product-images input:hover {
   cursor: pointer;
 }
 
